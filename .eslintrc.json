@@ -21,6 +21,7 @@
     },
     "plugins": [
         "react",
+        "prettier",
         "@typescript-eslint"
     ],
     "rules": {
@@ -28,9 +29,26 @@
             1,
             {
                 "extensions": [
-                    ".tsx"
+                    ".tsx",
+                    ".jsx"
                 ]
             }
+        ],
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "ts": "never",
+                "tsx": "never",
+                "js": "never",
+                "jsx": "never",
+                "mjs": "never"
+            }
         ]
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
     }
 }
