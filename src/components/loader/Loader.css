@@ -1,0 +1,12 @@
+.title {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.titleText {
+    font-family: Righteous;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.5em;
+    line-height: .9em;
+}
