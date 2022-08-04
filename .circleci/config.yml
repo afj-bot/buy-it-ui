@@ -35,7 +35,7 @@ workflows:
   build:
     jobs:
       - test
-      - build_and_publish
+      - build_and_publish:
           context: OCTOPUS          
           # filters:
           #   branches:
