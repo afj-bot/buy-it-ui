@@ -6,7 +6,9 @@ import Loading from "./components/loader/Loading";
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
+
 const App = React.lazy(() => import("./App"));
+const Login = React.lazy(() => import("./pages/Login"));
 
 class Index extends React.Component {
 
@@ -15,7 +17,7 @@ class Index extends React.Component {
       <Router>
         <Suspense fallback={<Loading open />}>
           <Routes>
-            <Route path="/test" element={<App />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/loader" element={<Loading open />} />
           </Routes>
         </Suspense>

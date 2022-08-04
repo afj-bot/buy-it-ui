@@ -1,0 +1,10 @@
+
+.input:focus {
+    background-color: "rgba(240, 251, 255, 0.3)";
+    border-color: "#000000";
+}
+
+.input .MuiOutlinedInput-root fieldset {
+      border-color: "#000000";
+      border-radius: "5px";
+}
