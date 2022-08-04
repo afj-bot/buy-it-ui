@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Intall dependencies
+          name: Intall node dependencies
           command: npm install
       - run:
           name: Run test
@@ -15,18 +15,18 @@ jobs:
 
   build_and_publish:
     docker:
-      - image: cimg/node:18.7.0
+      - image: cimg/base:2021.04
     steps:
       - checkout
       - run:
-          name: Intall dependencies
+          name: Install dependencies
+          command: sh ./tools/install_dependencies.sh      
+      - run:
+          name: Intall node dependencies
           command: npm install
       - run:
-          name: Deploy build
+          name: Build webpack
           command: npm run build
-      - run:
-          name: Install dependencies
-          command: sh ./tools/install_dependencies.sh
       - run:
           name: Zip and Publish to Octopus
           command: |
