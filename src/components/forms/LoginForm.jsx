@@ -1,28 +1,43 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import Input from '../inputs/Input';
+import Loading from '../loader/Loading';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import { Link } from "react-router-dom";
-import "./LoginForm.css";
 import LoginIcon from '@mui/icons-material/Login';
+import LoginService from "../../service/api/LoginService";
+import "./LoginForm.css";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(false);
+  const [isError, setError] = useState(false);
+  const [isLoading, setLoading] = useState(false);
+  let navigate = useNavigate();
 
-  const login = () => {
+  const login = async () => {
+    setLoading(true);
+    const response = await LoginService.login(username, password);
+    if(response.status === 200) {
+      localStorage.setItem("token", response.data.token);
+      setLoading(false);
+      navigate("/my/profile");
+    } else {
+      setLoading(false);
+      setError(true);
+    }
   }
 
   const disabled = () => username === "" || password === "";
 
   const elementsMap = [
     {
-      row: <Input placeholder="Username" id="username" type="text" value={username} error={error} changeFunction={setUsername}/>
+      row: <Input placeholder="Username" id="username" type="text" value={username} error={isError} changeFunction={setUsername}/>
     },
     {
-      row: <Input placeholder="Password" id="pass" type="password" value={password} isPasswordField={true} error={error} changeFunction={setPassword}/>
+      row: <Input placeholder="Password" id="pass" type="password" value={password} isPasswordField={true} error={isError} changeFunction={setPassword}/>
     },
     {
       row: <>
@@ -39,7 +54,8 @@ const LoginForm = () => {
   ]
 
   return (
-    <Grid container direction="column" className="form">
+    <Grid container direction="column" className="form" wrap="nowrap">
+      {<Loading open={isLoading}/>}
       <Grid item className="title">
       <div className="center">
         <LoginIcon fontSize="large"/>
@@ -48,8 +64,8 @@ const LoginForm = () => {
       </Grid>
       <Grid item>
         <Grid container direction="column" className="inputs-box">
-          {elementsMap.map((ele) => (
-          <Grid item className="row">
+          {elementsMap.map((ele, index) => (
+          <Grid key={index} item className="row">
             {ele.row}
         </Grid>
           ))}

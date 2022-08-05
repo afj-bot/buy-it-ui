@@ -5,18 +5,18 @@ const CompressionPlugin = require("compression-webpack-plugin");
 
 const plugins = () => (
     [
-        new HtmlWebpackPlugin({     
-            favicon: "./public/favicon.ico",
-            template: "./public/index.html",
-            manifest: "./public/manifest.json"
-         }), 
-        new MiniCssExtractPlugin(),
-        new CompressionPlugin({
-            algorithm: "gzip",
-            test: /\.js$|\.css$|\.html$/,
-            threshold: 10240,
-            minRatio: 0.8,
-          }),
+      new HtmlWebpackPlugin({     
+          favicon: "./public/favicon.ico",
+          template: "./public/index.html",
+          manifest: "./public/manifest.json"
+      }), 
+      new MiniCssExtractPlugin(),
+      new CompressionPlugin({
+          algorithm: "gzip",
+          test: /\.js$|\.css$|\.html$/,
+          threshold: 10240,
+          minRatio: 0.8,
+      }),  
     ]
 )
 

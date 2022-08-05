@@ -8,6 +8,9 @@ const instance = axios.create({
   },
   withCredentials: true,
   timeout: 20000,
+  validateStatus: function (status) {
+    return status >= 200 && status < 504; 
+  }
 });
 
 export default instance;

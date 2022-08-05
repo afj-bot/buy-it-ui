@@ -17,11 +17,11 @@ const Loading = ({ open, text = "Wait ..." }) => {
     return (
         <Dialog open={isOpen}>
             <DialogTitle
-                className={"title"}
+                className="loader-title"
                 id="loader-title"
                 data-test-id="loader-title"
             >
-                <span className={"titleText"}>{text}</span>
+                <span className="loader-title-text">{text}</span>
             </DialogTitle>
             <DialogContent>
                 <Grid container justifyContent="center">
