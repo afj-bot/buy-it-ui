@@ -4,8 +4,7 @@ import "./App.css";
 function App() {
   return (
     <header className="header">
-      {console.log("here")}
-      Welcome
+      Welcome to App
     </header>
   );
 }
