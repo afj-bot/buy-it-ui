@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import LoginIcon from '@mui/icons-material/Login';
 import LoginService from "../../service/api/LoginService";
 import "./LoginForm.css";
+import { AUTH_ROUTES, AUTH_TOKEN_ATTRIBUTE } from '../../constants';
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
@@ -20,54 +21,64 @@ const LoginForm = () => {
   const login = async () => {
     setLoading(true);
     const response = await LoginService.login(username, password);
-    if(response.status === 200) {
-      localStorage.setItem("token", response.data.token);
+    if (response.status === 200) {
+      localStorage.setItem(AUTH_TOKEN_ATTRIBUTE, response.data.token);
       setLoading(false);
-      navigate("/my/profile");
+      navigate(AUTH_ROUTES.MY_PROFILE);
     } else {
       setLoading(false);
       setError(true);
     }
   }
 
+  const handleUsername = (value) => {
+    setError(false);
+    setUsername(value);
+  }
+
+  const handlePassword = (value) => {
+    setError(false);
+    setPassword(value)
+  }
+
   const disabled = () => username === "" || password === "";
 
   const elementsMap = [
     {
-      row: <Input placeholder="Username" id="username" type="text" value={username} error={isError} changeFunction={setUsername}/>
+      row: <Input placeholder="Username" id="username" type="text" value={username} error={isError} changeFunction={handleUsername} />
     },
     {
-      row: <Input placeholder="Password" id="pass" type="password" value={password} isPasswordField={true} error={isError} changeFunction={setPassword}/>
+      row: <Input placeholder="Password" id="pass" type="password" value={password} isPasswordField={true} error={isError} changeFunction={handlePassword} />
     },
     {
       row: <>
-          <Tooltip title="login.button.tooltip" arrow placement="left" disableHoverListener={!disabled()} disableFocusListener={!disabled()}>
-            <span>
-              <Button fullWidth disabled={disabled()} onClick={login}>login.button</Button>
-            </span>
-            </Tooltip>
-            <Tooltip title="login.forgot.password.tooltip" arrow>
-              <Button className="change-password" component={Link} to="/forgot-password">login.forgot.password.button</Button>
-            </Tooltip>
-          </>
+        <Tooltip title="login.button.tooltip" arrow placement="left" disableHoverListener={!disabled()} disableFocusListener={!disabled()}>
+          <span>
+            <Button fullWidth disabled={disabled()} onClick={login}>login.button</Button>
+          </span>
+        </Tooltip>
+        <Tooltip title="login.forgot.password.tooltip" arrow>
+          <Button className="change-password" component={Link} to="/forgot-password">login.forgot.password.button</Button>
+        </Tooltip>
+      </>
     }
   ]
 
   return (
-    <Grid container direction="column" className="form" wrap="nowrap">
-      {<Loading open={isLoading}/>}
+    <Grid container direction="column" className="form">
+      {<Loading open={isLoading} />}
       <Grid item className="title">
-      <div className="center">
-        <LoginIcon fontSize="large"/>
-        <h2 style={{paddingLeft: "2%"}}>Login</h2>
-      </div>  
+        <div className="center">
+          <LoginIcon fontSize="large" />
+          <h2 style={{ paddingLeft: "2%" }}>Login</h2>
+        </div>
       </Grid>
       <Grid item>
         <Grid container direction="column" className="inputs-box">
           {elementsMap.map((ele, index) => (
-          <Grid key={index} item className="row">
-            {ele.row}
-        </Grid>
+            <Grid key={index} item className="row">
+              {ele.row}
+            </Grid>
           ))}
         </Grid>
       </Grid>

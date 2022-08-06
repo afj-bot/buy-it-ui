@@ -5,6 +5,9 @@ import './index.css';
 import Loading from "./components/loader/Loading";
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import AuthenticatedRoute from './components/auth/AuthenticatedRoute';
+import PublicRoute from './components/auth/PublicRoute';
+import { AUTH_ROUTES } from './constants';
 
 
 const App = React.lazy(() => import("./App"));
@@ -17,8 +20,19 @@ class Index extends React.Component {
       <Router>
         <Suspense fallback={<Loading open />}>
           <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/loader" element={<Loading open />} />
+            <Route path="/login" element={
+              <PublicRoute>
+                <Suspense fallback={<Loading open />}>
+                  <Login />
+                </Suspense>
+              </PublicRoute>
+            } />
+            <Route path={AUTH_ROUTES.MY_PROFILE} element={
+              <AuthenticatedRoute>
+                <Suspense fallback={<Loading open />}>
+                  <App />
+                </Suspense>
+              </AuthenticatedRoute>} />
           </Routes>
         </Suspense>
       </Router>
