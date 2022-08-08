@@ -4,7 +4,7 @@ import "./App.css";
 function App() {
   return (
     <header className="header">
-      Welcome
+      Welcome to App
     </header>
   );
 }
