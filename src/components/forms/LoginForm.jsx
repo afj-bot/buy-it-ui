@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import Input from '../inputs/Input';
 import Loading from '../loader/Loading';
@@ -10,8 +10,10 @@ import LoginIcon from '@mui/icons-material/Login';
 import LoginService from "../../service/api/LoginService";
 import "./LoginForm.css";
 import { AUTH_ROUTES, AUTH_TOKEN_ATTRIBUTE } from '../../constants';
+import { LocalizeContext } from '../../service/providers/LocalizeProvider';
 
 const LoginForm = () => {
+  const { getKeyValue } = useContext(LocalizeContext)
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isError, setError] = useState(false);
@@ -45,20 +47,20 @@ const LoginForm = () => {
 
   const elementsMap = [
     {
-      row: <Input placeholder="Username" id="username" type="text" value={username} error={isError} changeFunction={handleUsername} />
+      row: <Input placeholder={getKeyValue("login.form.username.input")}  id="username" type="text" value={username} error={isError} changeFunction={handleUsername} />
     },
     {
-      row: <Input placeholder="Password" id="pass" type="password" value={password} isPasswordField={true} error={isError} changeFunction={handlePassword} />
+      row: <Input placeholder={getKeyValue("login.form.password.input")} id="pass" type="password" value={password} isPasswordField={true} error={isError} changeFunction={handlePassword} />
     },
     {
       row: <>
-        <Tooltip title="login.button.tooltip" arrow placement="left" disableHoverListener={!disabled()} disableFocusListener={!disabled()}>
+        <Tooltip title={getKeyValue("login.form.button.tooltip")} arrow placement="left" disableHoverListener={!disabled()} disableFocusListener={!disabled()}>
           <span>
-            <Button fullWidth disabled={disabled()} onClick={login}>login.button</Button>
+            <Button fullWidth disabled={disabled()} onClick={login}>{getKeyValue("login.form.button")}</Button>
           </span>
         </Tooltip>
-        <Tooltip title="login.forgot.password.tooltip" arrow>
-          <Button className="change-password" component={Link} to="/forgot-password">login.forgot.password.button</Button>
+        <Tooltip title={getKeyValue("login.form.forgot.password.tooltip")} arrow>
+          <Button className="change-password" component={Link} to="/forgot-password">{getKeyValue("login.form.forgot.password.button")}</Button>
         </Tooltip>
       </>
     }
@@ -70,7 +72,7 @@ const LoginForm = () => {
       <Grid item className="title">
         <div className="center">
           <LoginIcon fontSize="large" />
-          <h2 style={{ paddingLeft: "2%" }}>Login</h2>
+          <h2 style={{ paddingLeft: "2%" }}>{getKeyValue("login.form.title")}</h2>
         </div>
       </Grid>
       <Grid item>
