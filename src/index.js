@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AuthenticatedRoute from './components/auth/AuthenticatedRoute';
 import PublicRoute from './components/auth/PublicRoute';
 import { AUTH_ROUTES, PUBLIC_ROUTES } from './constants';
+import LocalizeProvider from './service/providers/LocalizeProvider';
 
 
 const App = React.lazy(() => import("./App"));
@@ -17,13 +18,14 @@ class Index extends React.Component {
 
   renderLogin = () => (
     <PublicRoute>
-      <Login />
+      <App>
+        <Login />
+      </App>
     </PublicRoute>
   );
 
   renderMyProfile = () => (
     <AuthenticatedRoute>
-      <App />
     </AuthenticatedRoute>
   );
 
@@ -32,6 +34,7 @@ class Index extends React.Component {
       <Router>
         <Suspense fallback={<Loading open />}>
           <Routes>
+            <Route path={PUBLIC_ROUTES.DASHBOARD} element={<App />} />
             <Route path={PUBLIC_ROUTES.LOGIN} element={this.renderLogin()} />
             <Route path={AUTH_ROUTES.MY_PROFILE} element={this.renderMyProfile()} />
           </Routes>
@@ -44,7 +47,9 @@ class Index extends React.Component {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Index />
+    <LocalizeProvider>
+      <Index />
+    </LocalizeProvider>
   </React.StrictMode>
 );
 
