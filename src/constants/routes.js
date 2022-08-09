@@ -5,6 +5,9 @@ export const PUBLIC_ROUTES = {
   LOGIN: "/login",
   NOT_FOUND: "/404",
   DASHBOARD: "/",
+  PRODUCTS: "/products",
+  DELIVERY: "/delivery",
+  CONTACT_US: "/contact-us",
 };
 
 /**

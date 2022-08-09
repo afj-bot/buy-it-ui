@@ -22,7 +22,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/build'),
     filename: "bundle.[fullhash].js",
-    publicPath: "/",
+    publicPath: "/"
   },
   devServer: {
     port: 3000,
@@ -48,6 +48,10 @@ module.exports = {
       {
         test: /\.(jpe?g|png|gif)$/i,
         loader: "file-loader",
+      },
+      {
+        test: /\.svg$/,
+        use: ["@svgr/webpack"],
       },
     ]
   },

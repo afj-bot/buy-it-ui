@@ -1,0 +1,29 @@
+    .localization-item {
+    width: 10vw;
+    height: 8em;
+    display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.image {
+    width: 30px;
+    height: 24px;
+}
+
+@media screen and (min-width: 240px) and (max-width: 960px) {
+    .image {
+        width: 15px;
+        height: 12px;
+    }
+
+    .localization-item {
+        height: 5em;
+    }
+}

@@ -15,7 +15,8 @@ export default function LocalizeProvider({ children }) {
   };
 
   const getKeyValue = (key) => {
-    return resource ? resource[`${key}`] : "";
+    const value = resource ? resource[`${key}`] : key;
+    return value ? value : key;
   }
 
   const contextValue = {

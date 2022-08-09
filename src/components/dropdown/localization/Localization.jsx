@@ -1,12 +1,13 @@
-import React, { useContext, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import IconButton from '@mui/material/IconButton';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import Grow from '@mui/material/Grow';
 import Paper from '@mui/material/Paper';
 import Popper from '@mui/material/Popper';
 import MenuList from '@mui/material/MenuList';
+import "./Localization.css";
 
-const LocalizationDropDown = ({country, setCountry }) => {
+const Localization = ({country, setCountry }) => {
     const anchorRef = useRef(null);
     const [open, setOpen] = useState(false);
 
@@ -49,7 +50,7 @@ const LocalizationDropDown = ({country, setCountry }) => {
       }
     
       const prevOpen = React.useRef(open);
-      React.useEffect(() => {
+      useEffect(() => {
         if (prevOpen.current === true && open === false) {
           anchorRef.current.focus();
         }
@@ -58,7 +59,7 @@ const LocalizationDropDown = ({country, setCountry }) => {
       }, [open]);
 
     return (
-        <>
+        <div className="localization-item">
         <IconButton
           ref={anchorRef}
           aria-haspopup="true"
@@ -66,7 +67,7 @@ const LocalizationDropDown = ({country, setCountry }) => {
         >
           <img 
               loading="lazy"
-              width="20"
+              className="image"
               src={`https://flagcdn.com/w20/${country}.png`}
               srcSet={`https://flagcdn.com/w40/${country}.png 2x`}
               alt=""
@@ -98,7 +99,7 @@ const LocalizationDropDown = ({country, setCountry }) => {
                         <IconButton onClick={(e) => handleClose(e, country.code)}>
                             <img 
                                 loading="lazy"
-                                width="20"
+                                className="image"
                                 src={`https://flagcdn.com/w20/${country.code.toLowerCase()}.png`}
                                 srcSet={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png 2x`}
                                 alt=""
@@ -112,8 +113,8 @@ const LocalizationDropDown = ({country, setCountry }) => {
             </Grow>
           )}
         </Popper>
-        </>
+        </div>
     )
 }
 
-export default LocalizationDropDown;
+export default Localization;
