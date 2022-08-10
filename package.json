@@ -11,6 +11,7 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
+    "cross-env": "^7.0.3",
     "react": "^18.2.0",
     "react-cookie": "^4.1.1",
     "react-dom": "^18.2.0",
@@ -20,8 +21,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "serve": "webpack serve --mode development",
-    "build": "webpack --mode production",
+    "serve": "cross-env REACT_APP_API_URL=api-dev.buy-it.afj-solution.com webpack serve --mode development",
+    "build": "cross-env REACT_APP_API_URL=api-dev.buy-it.afj-solution.com webpack --mode development",
+    "build-prod": "cross-env REACT_APP_API_URL=api.buy-it.afj-solution.com webpack --mode production",
     "test": "echo 'No test running'",
     "lint": " eslint src/**/*.jsx src/*.jsx src/**/**/*.jsx src/*.js src/**/*.js src/**/**/*.js"
   },
