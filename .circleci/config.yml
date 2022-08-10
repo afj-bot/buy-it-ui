@@ -60,6 +60,6 @@ workflows:
       - test
       - build_and_publish:
           context: OCTOPUS        
-          # filters:
-          #   branches:
-          #     only: master      
+          filters:
+            branches:
+              only: master      
