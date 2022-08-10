@@ -1,5 +1,6 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
+const webpack = require("webpack");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin");
 
 const plugins = () => (
@@ -14,6 +15,15 @@ const plugins = () => (
       test: /\.js$|\.css$|\.html$/,
       threshold: 10240,
       minRatio: 0.8,
+    }),
+    new webpack.DefinePlugin({
+      "process.env.REACT_APP_ENV": JSON.stringify("PROD"),
+      "process.env.REACT_APP_API_URL": JSON.stringify(
+        process.env.REACT_APP_API_URL
+      ),
+      "process.env.REACT_APP_VERSION": JSON.stringify(
+        process.env.REACT_APP_VERSION
+      ),
     }),
   ]
 )
