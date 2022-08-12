@@ -1,10 +1,12 @@
 .header {
     width: 100vw;
     height: 8em;
+    -webkit-box-shadow: 0px 7px 17px -3px #000000; 
+    box-shadow: 0px 7px 17px -3px #000000;
 }
 
 .main-menu {
-    width: 85vw;
+    width: 80vw;
 }
 
 .main-localization {
@@ -21,40 +23,35 @@
     visibility: hidden;
 }
 
-#card-and-search {
-    margin-left: auto;
-}
-
-.cart-icon {
-    width: 5vw;
-    height: 6em;
-    margin: auto;
-}
-
-@media screen and (min-width: 1201px) and (max-width: 1920px) {
+@media screen and (min-width: 1201px) {
     .menu-desktop {
-        margin-left: 7%;
+        margin-left: 15%;
     }
     
-    .main-menu {
-        width: 80vw;
+    .menu-mobile {
+        visibility: hidden;
+        width: 0px;
+        height: 0px;
     }
+
 
 }
 
 @media screen and (min-width: 721px) and (max-width: 1200px) {
     .menu-desktop {
-        margin-left: 5%;
+        margin-left: 10%;
     }
 
     .main-menu {
-        width: 75vw;
+        width: 80vw;
     }
 }
 
-@media screen and (min-width: 240px) and (max-width: 720px) {
+@media screen and (min-width: 240px) and (max-width: 1024px) {
     .menu-desktop {
         visibility: hidden;
+        width: 0px;
+        height: 0px;
     }
 
     .header {
@@ -62,25 +59,16 @@
     }
 
     .main-menu {
-        width: 65vw;
+        width: 46vw;
     }
 
     .main-localization {
         width: 15vw;
     }
-}
-
-@media screen and (min-width: 240px) and (max-width: 1024px) {
-    .menu-desktop {
-        visibility: hidden;
-        width: 0;
-        height: 0;
-    }
 
     .menu-mobile {
         visibility: visible;
-        width: 100%;
+        width: 20%;
         height: 100%;
     }
-    
 }

@@ -1,0 +1,81 @@
+#card-and-search {
+    margin-left: auto;
+}
+
+.icon {
+    width: 5vw;
+    height: 8em;
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex;
+    /* NEW, Spec - Firefox, Chrome, Opera */
+
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.icon-desktop {
+    font-size: 40px;
+}
+
+.button-container {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex;
+    /* NEW, Spec - Firefox, Chrome, Opera */
+
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 50%;
+    width: 30%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.button {
+    text-decoration: none;
+    text-transform: none;
+
+    font-family: "Helvetica, Arial, sans-serif";
+    color: #0D7377;
+}
+
+@media screen and (min-width: 1921px) {
+
+    .button {
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width: 1221px) {
+
+    .button-container {
+        width: 25%;
+    }
+
+    .button {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 720) and (max-width: 1220px) {
+    .button-container {
+        width: 12%;
+    }
+    
+    .button {
+        font-size: 15px;
+    }
+}

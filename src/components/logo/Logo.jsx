@@ -1,11 +1,10 @@
-import React, { lazy, Suspense } from "react";
+import React, { Suspense } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import CircularProgress from "@mui/material/CircularProgress";
 import Grid from "@mui/material/Grid";
-import SvgIcon from "@mui/material/SvgIcon";
 import { PUBLIC_ROUTES } from "../../constants";
-import LogoIcon from "../../assets/app_logo.png";
+import LogoIcon from "../../assets/images/app_logo_250.png";
 import "./Logo.css";
 
 const Logo = () => {

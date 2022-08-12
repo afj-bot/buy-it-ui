@@ -5,6 +5,7 @@ import Grow from '@mui/material/Grow';
 import Paper from '@mui/material/Paper';
 import Popper from '@mui/material/Popper';
 import MenuList from '@mui/material/MenuList';
+import MenuItem from '@mui/material/MenuItem';
 import "./Localization.css";
 
 const Localization = ({country, setCountry }) => {
@@ -37,7 +38,9 @@ const Localization = ({country, setCountry }) => {
         }
     
         setOpen(false);
-        setCountry(code.toLowerCase());
+        if(code) {
+          setCountry(code.toLowerCase());
+        }
       };
     
       function handleListKeyDown(event) {
@@ -60,19 +63,21 @@ const Localization = ({country, setCountry }) => {
 
     return (
         <div className="localization-item">
-        <IconButton
-          ref={anchorRef}
-          aria-haspopup="true"
-          onClick={handleToggle}
-        >
-          <img 
+          <div className="localization-button">
+            <IconButton
+            ref={anchorRef}
+            aria-haspopup="true"
+            onClick={handleToggle}
+            >
+            <img 
               loading="lazy"
               className="image"
               src={`https://flagcdn.com/w20/${country}.png`}
               srcSet={`https://flagcdn.com/w40/${country}.png 2x`}
               alt=""
-          />
-        </IconButton>
+            />
+            </IconButton>
+          </div>
         <Popper
           open={open}
           anchorEl={anchorRef.current}
@@ -96,7 +101,8 @@ const Localization = ({country, setCountry }) => {
                     onKeyDown={handleListKeyDown}
                   >
                     {countries.map((country) => (
-                        <IconButton onClick={(e) => handleClose(e, country.code)}>
+                      <MenuItem key={country.code} onClick={(e) => handleClose(e, country.code)}>
+                        <IconButton key={country.code} >
                             <img 
                                 loading="lazy"
                                 className="image"
@@ -105,6 +111,7 @@ const Localization = ({country, setCountry }) => {
                                 alt=""
                             />
                         </IconButton>
+                      </MenuItem>
                     ))}
                 
                   </MenuList>
