@@ -1,67 +1,66 @@
-import React, { useEffect, useState, useRef } from 'react';
-import IconButton from '@mui/material/IconButton';
-import ClickAwayListener from '@mui/material/ClickAwayListener';
-import Grow from '@mui/material/Grow';
-import Paper from '@mui/material/Paper';
-import Popper from '@mui/material/Popper';
-import MenuList from '@mui/material/MenuList';
-import MenuItem from '@mui/material/MenuItem';
-import "./Localization.css";
+import React, { useEffect, useState, useRef } from 'react'
+import IconButton from '@mui/material/IconButton'
+import ClickAwayListener from '@mui/material/ClickAwayListener'
+import Grow from '@mui/material/Grow'
+import Paper from '@mui/material/Paper'
+import Popper from '@mui/material/Popper'
+import MenuList from '@mui/material/MenuList'
+import MenuItem from '@mui/material/MenuItem'
+import './Localization.css'
 
-const Localization = ({country, setCountry }) => {
-    const anchorRef = useRef(null);
-    const [open, setOpen] = useState(false);
+const Localization = ({ country, setCountry }) => {
+  const anchorRef = useRef(null)
+  const [open, setOpen] = useState(false)
 
-    const countries = [
-        {
-          code: "UA",
-          label: "Ukrainian"
-        },
-        {
-          code: "GB",
-          label: "English"
-        },
-        {
-          code: "HU",
-          label: "Hungarian"
-        }
-      ]
+  const countries = [
+    {
+      code: 'UA',
+      label: 'Ukrainian'
+    },
+    {
+      code: 'GB',
+      label: 'English'
+    },
+    {
+      code: 'HU',
+      label: 'Hungarian'
+    }
+  ]
 
-      
-    const handleToggle = () => {
-        setOpen((prevOpen) => !prevOpen);
-      };
+  const handleToggle = () => {
+    setOpen((prevOpen) => !prevOpen)
+  }
 
-      const handleClose = (event, code) => {
-        if (anchorRef.current && anchorRef.current.contains(event.target)) {
-          return;
-        }
-    
-        setOpen(false);
-        if(code) {
-          setCountry(code.toLowerCase());
-        }
-      };
-    
-      function handleListKeyDown(event) {
-        if (event.key === 'Tab') {
-          event.preventDefault();
-          setOpen(false);
-        } else if (event.key === 'Escape') {
-          setOpen(false);
-        }
-      }
-    
-      const prevOpen = React.useRef(open);
-      useEffect(() => {
-        if (prevOpen.current === true && open === false) {
-          anchorRef.current.focus();
-        }
-    
-        prevOpen.current = open;
-      }, [open]);
+  const handleClose = (event, code) => {
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return
+    }
 
-    return (
+    setOpen(false)
+    if (code) {
+      setCountry(code.toLowerCase())
+    }
+  }
+
+  function handleListKeyDown (event) {
+    if (event.key === 'Tab') {
+      event.preventDefault()
+      setOpen(false)
+    } else if (event.key === 'Escape') {
+      setOpen(false)
+    }
+  }
+
+  const prevOpen = React.useRef(open)
+  useEffect(() => {
+    if (prevOpen.current === true && open === false) {
+      anchorRef.current.focus()
+    }
+
+    prevOpen.current = open
+  }, [open])
+
+  return (
         <div className="localization-item">
           <div className="localization-button">
             <IconButton
@@ -69,7 +68,7 @@ const Localization = ({country, setCountry }) => {
             aria-haspopup="true"
             onClick={handleToggle}
             >
-            <img 
+            <img
               loading="lazy"
               className="image"
               src={`https://flagcdn.com/w20/${country}.png`}
@@ -89,7 +88,7 @@ const Localization = ({country, setCountry }) => {
               {...TransitionProps}
               style={{
                 transformOrigin:
-                  placement === 'bottom-start' ? 'left top' : 'left bottom',
+                  placement === 'bottom-start' ? 'left top' : 'left bottom'
               }}
             >
               <Paper>
@@ -103,7 +102,7 @@ const Localization = ({country, setCountry }) => {
                     {countries.map((country) => (
                       <MenuItem key={country.code} onClick={(e) => handleClose(e, country.code)}>
                         <IconButton key={country.code} >
-                            <img 
+                            <img
                                 loading="lazy"
                                 className="image"
                                 src={`https://flagcdn.com/w20/${country.code.toLowerCase()}.png`}
@@ -113,15 +112,15 @@ const Localization = ({country, setCountry }) => {
                         </IconButton>
                       </MenuItem>
                     ))}
-                
+
                   </MenuList>
                 </ClickAwayListener>
               </Paper>
             </Grow>
-          )}
+            )}
         </Popper>
         </div>
-    )
+  )
 }
 
-export default Localization;
+export default Localization

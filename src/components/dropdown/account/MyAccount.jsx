@@ -1,9 +1,11 @@
-import React, { useEffect, useState, useRef } from 'react';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-
+import React from 'react'
 
 const MyAccount = () => {
-
+  return (
+        <div>
+            My Accoint
+        </div>
+  )
 }
 
-export default MyAccount;
+export default MyAccount

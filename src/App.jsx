@@ -1,15 +1,19 @@
-import React from 'react';
-import "./App.css";
-import Header from './components/header/Header';
+import React from 'react'
+import PropTypes from 'prop-types'
+import './App.css'
+import Header from './components/header/Header'
 
 const App = ({ children }) => {
-
   return (
     <>
     <Header />
     {children}
     </>
-  );
+  )
 }
 
-export default App;
+App.propTypes = {
+  children: PropTypes.node
+}
+
+export default App
