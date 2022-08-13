@@ -13,11 +13,13 @@ jobs:
           name: Run test
           command: npm run test
       - run:
-          name: Generate Allure report    
-          command: npm run generate-allure-report
+          name: Copy coverage report 
+          command: |
+            ls
+            sudo cp -R coverage/* /tmp/artifacts
           when: always
       - store_artifacts:
-          path: ${CIRCLE_WORKING_DIRECTORY}/coverage/*
+          path: /tmp/artifacts
 
   build_and_publish:
     docker:
