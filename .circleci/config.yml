@@ -14,12 +14,10 @@ jobs:
           command: npm run test
       - run:
           name: Generate report    
-          command: |
-            [[ -d ${CIRCLE_WORKING_DIRECTORY}/allure-report ]] && sudo cp -R ${CIRCLE_WORKING_DIRECTORY}/allure-report/* /tmp/artifacts || true
-            [[ -d ${CIRCLE_WORKING_DIRECTORY}/coverage ]] && sudo cp -R ${CIRCLE_WORKING_DIRECTORY}/coverage/* /tmp/artifacts || true
+          command: ls
           when: always
       - store_artifacts:
-          path: /tmp/artifacts
+          path: /coverage/*
 
   build_and_publish:
     docker:
