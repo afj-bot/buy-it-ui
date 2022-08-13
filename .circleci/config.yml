@@ -4,7 +4,6 @@ jobs:
   test:
     docker:
       - image: cimg/base:2021.04
-    working_directory: /tmp
     steps:
       - checkout
       - run:
@@ -22,7 +21,9 @@ jobs:
           command: npm run test
       - run:
           name: Generate report    
-          command: allure generate
+          command: |
+            ls
+            allure generate
           when: always
       - store_artifacts:
           path: /tmp/coverage
