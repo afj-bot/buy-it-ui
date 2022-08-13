@@ -14,13 +14,11 @@ jobs:
           name: Run test
           command: npm run test
       - run:
-          name: Generate and copy report s
+          name: Generate and copy reports
           command: |
             npm run generate-allure-report
-            sudo mkdir /tmp/artifacts/allure-report
-            sudo mkdir /tmp/artifacts/coverage
-            sudo cp -R coverage /tmp/artifacts/coverage || true
-            sudo cp -R allure-report /tmp/artifacts/allure-report || true
+            sudo cp -R coverage /tmp/artifacts || true
+            sudo cp -R allure-report /tmp/artifacts || true
           when: always
       - store_artifacts:
           path: /tmp/artifacts
