@@ -15,8 +15,6 @@ jobs:
       - run:
           name: Generate report    
           command: |
-            allure generate
-            echo 'Copy Allure report'
             [[ -d ${CIRCLE_WORKING_DIRECTORY}/allure-report ]] && sudo cp -R ${CIRCLE_WORKING_DIRECTORY}/allure-report/* /tmp/artifacts || true
             [[ -d ${CIRCLE_WORKING_DIRECTORY}/coverage ]] && sudo cp -R ${CIRCLE_WORKING_DIRECTORY}/coverage/* /tmp/artifacts || true
           when: always
