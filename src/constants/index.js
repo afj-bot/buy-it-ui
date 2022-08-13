@@ -13,4 +13,5 @@ export * from './routes';
         : `https://${REACT_APP_API_URL}/api/v1`;
 
 export const AUTH_TOKEN_ATTRIBUTE = "token";
+export const ANONYMOUS_ATTRIBUTE = "anonymous";
 export const LANGUAGE_ATTRIBUTE = "language";
