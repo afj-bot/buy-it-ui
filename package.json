@@ -24,7 +24,7 @@
     "serve": "cross-env REACT_APP_API_URL=api-dev.buy-it.afj-solution.com webpack serve --mode development",
     "build": "cross-env REACT_APP_API_URL=api-dev.buy-it.afj-solution.com webpack --mode development",
     "build-prod": "cross-env REACT_APP_API_URL=api.buy-it.afj-solution.com webpack --mode production",
-    "test": "echo 'No test running'",
+    "test": "jest",
     "lint": " eslint src/**/*.jsx src/*.jsx src/**/**/*.jsx src/*.js src/**/*.js src/**/**/*.js"
   },
   "eslintConfig": {
@@ -56,6 +56,7 @@
     "eslint-plugin-react": "^7.30.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "jest-allure": "^0.1.3",
     "prettier": "^2.7.1",
     "style-loader": "^3.3.1",
     "webpack": "^5.74.0",

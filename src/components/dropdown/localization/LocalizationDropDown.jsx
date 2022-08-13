@@ -63,6 +63,7 @@ const LocalizationDropDown = ({country, setCountry }) => {
           ref={anchorRef}
           aria-haspopup="true"
           onClick={handleToggle}
+          data-testid="open-localization"
         >
           <img 
               loading="lazy"
@@ -70,6 +71,7 @@ const LocalizationDropDown = ({country, setCountry }) => {
               src={`https://flagcdn.com/w20/${country}.png`}
               srcSet={`https://flagcdn.com/w40/${country}.png 2x`}
               alt=""
+              data-testid="default-image"
           />
         </IconButton>
         <Popper
@@ -95,7 +97,7 @@ const LocalizationDropDown = ({country, setCountry }) => {
                     onKeyDown={handleListKeyDown}
                   >
                     {countries.map((country) => (
-                        <IconButton onClick={(e) => handleClose(e, country.code)}>
+                        <IconButton data-testid={`select-${country.code.toLowerCase()}`} onClick={(e) => handleClose(e, country.code)}>
                             <img 
                                 loading="lazy"
                                 width="20"
