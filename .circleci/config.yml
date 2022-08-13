@@ -3,11 +3,11 @@ version: 2.1
 jobs:
   test:
     docker:
-      - image: img/base:2021.04
+      - image: cimg/base:2021.04
     steps:
       - checkout
       - run:
-          name: Intall node dependencies
+          name: Intall dependencies
           command: |
             sh ./tools/install_dependencies.sh    
             apt-get install -y unzip curl tar openjdk-11-jre-headless
