@@ -1,7 +1,9 @@
 #!/bin/bash
 sudo sh ./install_dependencies.sh
-echo "Intall Java, cURL and tar"
-sudo apt-get install -y unzip curl tar openjdk-17-jre-headless
+echo "Intall Java tar"
+sudo apt-get install -y tar curl openjdk-17-jre-headless
+
+node -v | grep v15 || curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash - && yes|sudo apt-get install nodejs && yes|sudo apt-get install libxss1
 sudo apt-get update
 echo "Intall allure"
 curl -o allure-2.18.1.tgz -OLs https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.18.1/allure-commandline-2.18.1.tgz
