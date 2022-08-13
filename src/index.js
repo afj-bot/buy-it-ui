@@ -13,6 +13,7 @@ import LocalizeProvider from './service/providers/LocalizeProvider';
 
 const App = React.lazy(() => import("./App"));
 const Login = React.lazy(() => import("./pages/Login"));
+const ForgotPassoword = React.lazy(() => import("./pages/forgotPassword/ForgotPassoword"));
 
 class Index extends React.Component {
 
@@ -36,6 +37,7 @@ class Index extends React.Component {
           <Routes>
             <Route path={PUBLIC_ROUTES.DASHBOARD} element={<App />} />
             <Route path={PUBLIC_ROUTES.LOGIN} element={this.renderLogin()} />
+            <Route path={PUBLIC_ROUTES.FORGOT_PASSWORD} element={<ForgotPassoword />} />
             <Route path={AUTH_ROUTES.MY_PROFILE} element={this.renderMyProfile()} />
           </Routes>
         </Suspense>

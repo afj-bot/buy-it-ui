@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import LoginIcon from '@mui/icons-material/Login';
 import LoginService from "../../service/api/LoginService";
 import "./LoginForm.css";
-import { AUTH_ROUTES, AUTH_TOKEN_ATTRIBUTE } from '../../constants';
+import { AUTH_ROUTES, AUTH_TOKEN_ATTRIBUTE, PUBLIC_ROUTES } from '../../constants';
 import { LocalizeContext } from '../../service/providers/LocalizeProvider';
 
 const LoginForm = () => {
@@ -60,7 +60,7 @@ const LoginForm = () => {
           </span>
         </Tooltip>
         <Tooltip title={getKeyValue("login.form.forgot.password.tooltip")} arrow>
-          <Button className="change-password" component={Link} to="/forgot-password">{getKeyValue("login.form.forgot.password.button")}</Button>
+          <Button data-testid="forgot-password" className="forgot-password" component={Link} to={PUBLIC_ROUTES.FORGOT_PASSWORD}>{getKeyValue("login.form.forgot.password.button")}</Button>
         </Tooltip>
       </>
     }

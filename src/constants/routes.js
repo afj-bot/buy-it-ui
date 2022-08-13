@@ -5,6 +5,7 @@ export const PUBLIC_ROUTES = {
   LOGIN: "/login",
   NOT_FOUND: "/404",
   DASHBOARD: "/",
+  FORGOT_PASSWORD: "/forgot-password",
 };
 
 /**

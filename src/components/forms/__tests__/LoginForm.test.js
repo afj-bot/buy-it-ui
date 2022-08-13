@@ -1,6 +1,5 @@
 import React from "react";
 import  { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import userEvent from '@testing-library/user-event'
 import LoginForm from "../LoginForm";
 import '@testing-library/jest-dom';
 import { BrowserRouter } from 'react-router-dom'
@@ -55,6 +54,49 @@ test("Handle login click event", async () => {
         expect(axiosPost).toBeCalled();
     });
 });
+
+test("Check the button disabled if password empty", async () => {
+    const axiosPost = jest.spyOn(axios, "post");
+    axiosPost.mockImplementation(() => {
+         return Promise.resolve({ data: '', status: 401});
+    });
+    render(
+    <LocalizeContext.Provider value={contextValue} >
+        <LoginForm />
+    </LocalizeContext.Provider>,  
+    {wrapper: BrowserRouter});
+    fireEvent.change(screen.getByPlaceholderText("Username"), { target: { value: "42" } });
+    expect(screen.getByTestId("login")).toBeDisabled();
+});
+
+test("Check the button disabled if username empty", async () => {
+    const axiosPost = jest.spyOn(axios, "post");
+    axiosPost.mockImplementation(() => {
+         return Promise.resolve({ data: '', status: 401});
+    });
+    render(
+    <LocalizeContext.Provider value={contextValue} >
+        <LoginForm />
+    </LocalizeContext.Provider>,  
+    {wrapper: BrowserRouter});
+    fireEvent.change(screen.getByPlaceholderText("Password"), { target: { value: "42" } });
+    expect(screen.getByTestId("login")).toBeDisabled();
+});
+
+test.skip("Check the forgot password button", async () => {
+    const axiosPost = jest.spyOn(axios, "post");
+    axiosPost.mockImplementation(() => {
+         return Promise.resolve({ data: '', status: 401});
+    });
+    render(
+    <LocalizeContext.Provider value={contextValue} >
+        <LoginForm />
+    </LocalizeContext.Provider>,  
+    {wrapper: BrowserRouter});
+    fireEvent.click(screen.getByTestId("forgot-password"));
+    expect(screen.getByText('Link to /forgot-password')).toBeInTheDocument();
+});
+
 
 test("Handle error", async () => {
     const axiosPost = jest.spyOn(axios, "post");
