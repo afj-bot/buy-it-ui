@@ -19,9 +19,9 @@ jobs:
             ls
           when: always
       - store_artifacts:
-          path: /coverage
+          path: /coverage/*
       - store_artifacts:
-          path: /allure-report
+          path: /allure-report/*
 
   build_and_publish:
     docker:

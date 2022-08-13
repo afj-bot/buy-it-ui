@@ -9,3 +9,6 @@ sudo tar -zxvf allure-2.18.1.tgz -C /opt/
 sudo ln -s /opt/allure-2.18.1/bin/allure /usr/bin/allure
 echo "Intall project dependecies"
 npm install 
+
+echo "Clean up"
+sudo rm -r allure-2.18.1.tgz
