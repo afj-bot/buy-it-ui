@@ -17,7 +17,7 @@ jobs:
           command: ls
           when: always
       - store_artifacts:
-          path: /coverage/*
+          path: coverage/*
 
   build_and_publish:
     docker:
