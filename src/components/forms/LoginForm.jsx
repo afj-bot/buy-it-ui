@@ -56,7 +56,7 @@ const LoginForm = () => {
       row: <>
         <Tooltip title={getKeyValue("login.form.button.tooltip")} arrow placement="left" disableHoverListener={!disabled()} disableFocusListener={!disabled()}>
           <span>
-            <Button fullWidth disabled={disabled()} onClick={login}>{getKeyValue("login.form.button")}</Button>
+            <Button data-testid="login" fullWidth disabled={disabled()} onClick={login}>{getKeyValue("login.form.button")}</Button>
           </span>
         </Tooltip>
         <Tooltip title={getKeyValue("login.form.forgot.password.tooltip")} arrow>

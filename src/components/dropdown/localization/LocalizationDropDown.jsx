@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import IconButton from '@mui/material/IconButton';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import Grow from '@mui/material/Grow';
@@ -97,7 +97,10 @@ const LocalizationDropDown = ({country, setCountry }) => {
                     onKeyDown={handleListKeyDown}
                   >
                     {countries.map((country) => (
-                        <IconButton data-testid={`select-${country.code.toLowerCase()}`} onClick={(e) => handleClose(e, country.code)}>
+                        <IconButton 
+                          key={country.code}
+                          data-testid={`select-${country.code.toLowerCase()}`} 
+                          onClick={(e) => handleClose(e, country.code)}>
                             <img 
                                 loading="lazy"
                                 width="20"

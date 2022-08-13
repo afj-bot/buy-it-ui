@@ -35,6 +35,7 @@ module.exports = {
     rules: {
         "prettier/prettier": "error",
         "no-magic-numbers": ["error", { ignore: [-1, 0, 1, 2, 3, 4, 5] }],
+        "testing-library/no-node-access": ["error", {"allowContainerFirstChild": true}]
     },
     parser: "babel-eslint",
     settings: {
