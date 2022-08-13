@@ -16,12 +16,12 @@ jobs:
           name: Generate report    
           command: |
             allure generate
-            ls
+            echo 'Copy Allure report'
+            [[ -d ${CIRCLE_WORKING_DIRECTORY}/allure-report ]] && sudo cp -R ${CIRCLE_WORKING_DIRECTORY}/allure-report/* /tmp/artifacts || true
+            [[ -d ${CIRCLE_WORKING_DIRECTORY}/coverage ]] && sudo cp -R ${CIRCLE_WORKING_DIRECTORY}/allure-report/* /tmp/artifacts || true
           when: always
       - store_artifacts:
-          path: /coverage/*
-      - store_artifacts:
-          path: /allure-report/*
+          path: /tmp/artifacts
 
   build_and_publish:
     docker:
