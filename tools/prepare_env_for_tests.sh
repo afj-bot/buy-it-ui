@@ -1,5 +1,5 @@
 #!/bin/bash
-sh ./install_dependencies.sh    
+sudo sh ./install_dependencies.sh
 echo "Intall Java, cURL and tar"
 sudo apt-get install -y unzip curl tar openjdk-17-jre-headless
 sudo apt-get update
