@@ -25,6 +25,7 @@
     "build": "cross-env REACT_APP_API_URL=api-dev.buy-it.afj-solution.com webpack --mode development",
     "build-prod": "cross-env REACT_APP_API_URL=api.buy-it.afj-solution.com webpack --mode production",
     "test": "jest",
+    "generate-allure-report": "./node_modules/allure-commandline/bin/allure generate --clean",
     "lint": " eslint src/**/*.jsx src/*.jsx src/**/**/*.jsx src/*.js src/**/*.js src/**/**/*.js"
   },
   "eslintConfig": {
@@ -60,6 +61,7 @@
     "prettier": "^2.7.1",
     "style-loader": "^3.3.1",
     "webpack": "^5.74.0",
-    "webpack-cli": "^4.10.0"
+    "webpack-cli": "^4.10.0",
+    "allure-commandline": "2.18.1"
   }
 }

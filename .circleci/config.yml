@@ -13,11 +13,11 @@ jobs:
           name: Run test
           command: npm run test
       - run:
-          name: Generate report    
-          command: ls
+          name: Generate Allure report    
+          command: npm run generate-allure-report
           when: always
       - store_artifacts:
-          path: coverage/*
+          path: ${CIRCLE_WORKING_DIRECTORY}/coverage/*
 
   build_and_publish:
     docker:
