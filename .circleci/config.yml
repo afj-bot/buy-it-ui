@@ -16,8 +16,8 @@ jobs:
       - run:
           name: Copy coverage report 
           command: |
-            ls
-            sudo cp -R coverage /tmp/artifacts
+            sudo mkdir /tmp/artifacts/coverage
+            sudo cp -R coverage /tmp/artifacts/coverage || true
           when: always
       - store_artifacts:
           path: /tmp/artifacts
