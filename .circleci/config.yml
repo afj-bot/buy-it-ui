@@ -2,6 +2,7 @@ version: 2.1
 
 jobs:
   test:
+    resource_class: medium
     docker:
       - image: cimg/base:2021.04
     steps:
@@ -16,12 +17,13 @@ jobs:
           name: Copy coverage report 
           command: |
             ls
-            sudo cp -R coverage/* /tmp/artifacts
+            sudo cp -R coverage /tmp/artifacts
           when: always
       - store_artifacts:
           path: /tmp/artifacts
 
   build_and_publish:
+    resource_class: medium
     docker:
       - image: cimg/base:2021.04
     steps:
