@@ -16,7 +16,6 @@ generate_url () {
 }
 
 send_success_slack () {
-    echo "Send succss slack notification"
     local title="The ${PROJECT_NAME} build was successfully finished."
     local emoji="partying_face"
     local color="#00FF00"
@@ -25,6 +24,7 @@ send_success_slack () {
         "text": "'${title}'",
         "color": "'${color}'"
     }]}'
+    echo "Send succss slack notification. $message"
     resp="$(curl -d "$message" -H "Content-Type: application/json" -X POST ${SLACK_HOOK})"
     if [[ "${resp}" != 'ok' ]]; then
         echo -e "Failed to send slack notification.\n${resp}\n${message}"
@@ -38,7 +38,7 @@ send_failed_slack () {
     local emoji="disappointed"
     local color="#FF0000"
     local text="${title}. Find it here $url"
-        local message='{"attachments": [{
+    local message='{"attachments": [{
         "title": "'${title}' :'${emoji}':",
         "text": "'${text}'",
         "color": "'${color}'",
@@ -49,13 +49,14 @@ send_failed_slack () {
             }
         ],        
     }]}'
+    echo "Send succss slack notification. $message"
     resp="$(curl -d "$message" -H "Content-Type: application/json" -X POST ${SLACK_HOOK})"
     if [[ "${resp}" != 'ok' ]]; then
         echo -e "Failed to send slack notification.\n${resp}\n${message}"
     fi
 }
 
-if [[ "${status}" == 'success' ]]; then
+if [[ "${STATUS}" == 'success' ]]; then
     send_success_slack
 else
     send_failed_slack
