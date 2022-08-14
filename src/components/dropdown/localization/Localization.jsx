@@ -62,19 +62,21 @@ const Localization = ({ country, setCountry }) => {
   }, [open])
 
   return (
-        <div className="localization-item">
-          <div className="localization-button">
+        <div className='localization-item'>
+          <div className='localization-button'>
             <IconButton
+            data-testid='open-localization'
             ref={anchorRef}
-            aria-haspopup="true"
+            aria-haspopup='true'
             onClick={handleToggle}
             >
             <img
-              loading="lazy"
-              className="image"
+              data-testid='default-image'
+              loading='lazy'
+              className='image'
               src={`https://flagcdn.com/w20/${country}.png`}
               srcSet={`https://flagcdn.com/w40/${country}.png 2x`}
-              alt=""
+              alt=''
             />
             </IconButton>
           </div>
@@ -96,19 +98,19 @@ const Localization = ({ country, setCountry }) => {
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList
                     autoFocusItem={open}
-                    id="composition-menu"
-                    aria-labelledby="composition-button"
+                    id='composition-menu'
+                    aria-labelledby='composition-button'
                     onKeyDown={handleListKeyDown}
                   >
                     {countries.map((country) => (
                       <MenuItem key={country.code} onClick={(e) => handleClose(e, country.code)}>
-                        <IconButton key={country.code} >
+                        <IconButton data-testid={`select-${country.code.toLowerCase()}`}>
                             <img
-                                loading="lazy"
-                                className="image"
+                                loading='lazy'
+                                className='image'
                                 src={`https://flagcdn.com/w20/${country.code.toLowerCase()}.png`}
                                 srcSet={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png 2x`}
-                                alt=""
+                                alt=''
                             />
                         </IconButton>
                       </MenuItem>
