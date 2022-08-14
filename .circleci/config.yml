@@ -65,11 +65,11 @@ jobs:
             curl -X POST ${OCTOPUS_API_URL} -H "X-Octopus-ApiKey: ${OCTOPUS_API_KEY}" -F "data=@build-prod.1.0.0-${CIRCLE_BUILD_NUM}.zip" 
       - run:
           name: Success build notify
-          command: sh ./tools/notify.sh success FE
+          command: sh ./tools/notify.sh success 'Buy it FE'
           when: on_success
       - run:
           name: Failed build notify
-          command: sh ./tools/notify.sh failed FE
+          command: sh ./tools/notify.sh failed 'Buy it FE'
           when: on_fail
 
 workflows:
@@ -81,6 +81,6 @@ workflows:
           context: 
             - OCTOPUS    
             - SLACK    
-          filters:
-            branches:
-              only: master      
+          # filters:
+          #   branches:
+          #     only: master      
