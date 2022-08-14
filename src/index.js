@@ -10,8 +10,10 @@ import PublicRoute from './components/auth/PublicRoute'
 import { AUTH_ROUTES, PUBLIC_ROUTES } from './constants'
 import LocalizeProvider from './service/providers/LocalizeProvider'
 
-const App = React.lazy(() => import('./App'))
-const Login = React.lazy(() => import('./pages/Login'))
+
+const App = React.lazy(() => import("./App"));
+const Login = React.lazy(() => import("./pages/Login"));
+const ForgotPassoword = React.lazy(() => import("./pages/forgotPassword/ForgotPassoword"));
 
 class Index extends React.Component {
   renderLogin = () => (
@@ -37,6 +39,7 @@ class Index extends React.Component {
             <Route path={PUBLIC_ROUTES.DELIVERY} element={<App />} />
             <Route path={PUBLIC_ROUTES.CONTACT_US} element={<App />} />
             <Route path={PUBLIC_ROUTES.LOGIN} element={this.renderLogin()} />
+            <Route path={PUBLIC_ROUTES.FORGOT_PASSWORD} element={<ForgotPassoword />} />
             <Route path={AUTH_ROUTES.MY_PROFILE} element={this.renderMyProfile()} />
           </Routes>
         </Suspense>

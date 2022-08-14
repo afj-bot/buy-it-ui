@@ -7,7 +7,8 @@ export const PUBLIC_ROUTES = {
   DASHBOARD: '/',
   PRODUCTS: '/products',
   DELIVERY: '/delivery',
-  CONTACT_US: '/contact-us'
+  CONTACT_US: '/contact-us',
+  FORGOT_PASSWORD: "/forgot-password",
 }
 
 /**

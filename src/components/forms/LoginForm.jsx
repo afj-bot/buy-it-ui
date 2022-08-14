@@ -8,7 +8,7 @@ import Tooltip from '@mui/material/Tooltip'
 import LoginIcon from '@mui/icons-material/Login'
 import LoginService from '../../service/api/LoginService'
 import './LoginForm.css'
-import { AUTH_ROUTES, AUTH_TOKEN_ATTRIBUTE } from '../../constants'
+import { AUTH_ROUTES, AUTH_TOKEN_ATTRIBUTE, PUBLIC_ROUTES } from '../../constants'
 import { LocalizeContext } from '../../service/providers/LocalizeProvider'
 
 const LoginForm = () => {
@@ -55,11 +55,11 @@ const LoginForm = () => {
       row: <>
         <Tooltip title={getKeyValue('login.form.button.tooltip')} arrow placement="left" disableHoverListener={!disabled()} disableFocusListener={!disabled()}>
           <span>
-            <Button fullWidth disabled={disabled()} onClick={login}>{getKeyValue('login.form.button')}</Button>
+            <Button data-testid="login" fullWidth disabled={disabled()} onClick={login}>{getKeyValue('login.form.button')}</Button>
           </span>
         </Tooltip>
         <Tooltip title={getKeyValue('login.form.forgot.password.tooltip')} arrow>
-          <Button className="change-password" component={Link} to="/forgot-password">{getKeyValue('login.form.forgot.password.button')}</Button>
+          <Button data-testid="forgot-password" className="change-password" component={Link} to="/forgot-password">{getKeyValue('login.form.forgot.password.button')}</Button>
         </Tooltip>
       </>
     }

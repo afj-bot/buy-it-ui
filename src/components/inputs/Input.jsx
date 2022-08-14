@@ -36,6 +36,7 @@ const Input = ({ id, placeholder, type, value, isPasswordField, error, changeFun
     <TextField
       className="input"
       id={id}
+      data-testid={id}
       placeholder={placeholder}
       type={stateType}
       fullWidth
