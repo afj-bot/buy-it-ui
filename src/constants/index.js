@@ -14,3 +14,6 @@ export const API_BASE_URL =
 
 export const AUTH_TOKEN_ATTRIBUTE = 'token'
 export const LANGUAGE_ATTRIBUTE = 'language'
+
+export const OK = 200
+export const SERVER_ERROR = 504

@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
+import PropTypes from 'prop-types'
 import IconButton from '@mui/material/IconButton'
 import ClickAwayListener from '@mui/material/ClickAwayListener'
 import Grow from '@mui/material/Grow'
@@ -121,6 +122,11 @@ const Localization = ({ country, setCountry }) => {
         </Popper>
         </div>
   )
+}
+
+Localization.propTypes = {
+  country: PropTypes.string,
+  setCountry: PropTypes.func.isRequired
 }
 
 export default Localization
