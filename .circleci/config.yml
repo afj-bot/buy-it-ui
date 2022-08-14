@@ -22,6 +22,18 @@ jobs:
           when: always
       - store_artifacts:
           path: /tmp/artifacts
+  compile:
+    resource_class: medium
+    docker:
+      - image: cimg/node:18.7.0
+    steps:
+      - checkout
+      - run:
+          name: Intall dependencies
+          command: npm install
+      - run:
+          name: Compile the javascript code
+          command: npm run build
 
   build_and_publish:
     resource_class: medium
@@ -77,6 +89,7 @@ workflows:
   build:
     jobs:
       - test
+      - compile
       - build_and_publish:
           context: 
             - OCTOPUS    

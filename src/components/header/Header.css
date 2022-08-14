@@ -1,0 +1,100 @@
+.header {
+    width: 100vw;
+    height: 8em;
+    -webkit-box-shadow: 0px 7px 17px -3px #000000; 
+    box-shadow: 0px 7px 17px -3px #000000;
+}
+
+.main-menu {
+    width: 80vw;
+}
+
+.main-localization {
+    width: 7vw;
+}
+
+.menu-desktop {
+    margin-left: 10%;
+    width: 90%;
+    height: 100%;
+}
+
+.menu-mobile {
+    visibility: hidden;
+}
+
+@media screen and (min-width: 1201px) {
+    .menu-desktop {
+        margin-left: 15%;
+    }
+    
+    .menu-mobile {
+        visibility: hidden;
+        width: 0px;
+        height: 0px;
+    }
+
+
+}
+
+@media screen and (min-width: 721px) and (max-width: 1200px) {
+    .menu-desktop {
+        margin-left: 10%;
+    }
+
+    .main-menu {
+        width: 80vw;
+    }
+}
+
+@media screen and (min-width: 240px) and (max-width: 767px) {
+    .menu-desktop {
+        visibility: hidden;
+        width: 0px;
+        height: 0px;
+    }
+
+    .header {
+        height: 5em;
+    }
+
+    .main-menu {
+        width: 58%;
+    }
+
+    .main-localization {
+        width: 5%;
+    }
+
+    .menu-mobile {
+        visibility: visible;
+        width: 13%;
+        height: 100%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .menu-desktop {
+        visibility: hidden;
+        width: 0px;
+        height: 0px;
+    }
+
+    .header {
+        height: 5em;
+    }
+
+    .main-menu {
+        width: 75%;
+    }
+
+    .main-localization {
+        width: 5%;
+    }
+
+    .menu-mobile {
+        visibility: visible;
+        width: 8%;
+        height: 100%;
+    }
+}

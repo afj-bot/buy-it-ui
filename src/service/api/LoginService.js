@@ -1,15 +1,15 @@
 
-import apiInstance from "./axios";
+import apiInstance from "./axios"
 
 const prefix = "/login"
 
 class LoginService {
-    async login(username, password) {
-        return await apiInstance.post(prefix, {
-            username,
-            password
-        });
-    }
+  async login (username, password) {
+    return await apiInstance.post(prefix, {
+      username,
+      password
+    })
+  }
 }
 
-export default new LoginService();
+export default new LoginService()

@@ -49,9 +49,9 @@
     text-align: center;
 }
 
-@media screen and (min-width: 240px) and (max-width: 960px) {
+@media screen and (min-width: 240px) and (max-width: 1024px) {
     .form {
-        width: 22em;
+        width: 20em;
     }
 
     .row {
