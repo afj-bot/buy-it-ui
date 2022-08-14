@@ -2,18 +2,29 @@ version: 2.1
 
 jobs:
   test:
+    resource_class: medium
     docker:
-      - image: cimg/node:18.7.0
+      - image: cimg/base:2021.04
     steps:
       - checkout
       - run:
-          name: Intall node dependencies
-          command: npm install
+          name: Intall dependencies
+          command: sh ./tools/prepare_env_for_tests.sh
       - run:
           name: Run test
           command: npm run test
+      - run:
+          name: Generate and copy reports
+          command: |
+            npm run generate-allure-report
+            sudo cp -R coverage /tmp/artifacts || true
+            sudo cp -R allure-report /tmp/artifacts || true
+          when: always
+      - store_artifacts:
+          path: /tmp/artifacts
 
   build_and_publish:
+    resource_class: medium
     docker:
       - image: cimg/base:2021.04
     steps:
