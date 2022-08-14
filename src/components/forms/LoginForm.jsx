@@ -8,8 +8,9 @@ import Tooltip from '@mui/material/Tooltip';
 import { Link } from "react-router-dom";
 import LoginIcon from '@mui/icons-material/Login';
 import LoginService from "../../service/api/LoginService";
+import apiInstance from "../../service/api/axios";
 import "./LoginForm.css";
-import { AUTH_ROUTES, AUTH_TOKEN_ATTRIBUTE, PUBLIC_ROUTES } from '../../constants';
+import { ANONYMOUS_ATTRIBUTE, AUTH_ROUTES, AUTH_TOKEN_ATTRIBUTE, PUBLIC_ROUTES } from '../../constants';
 import { LocalizeContext } from '../../service/providers/LocalizeProvider';
 
 const LoginForm = () => {
@@ -25,6 +26,7 @@ const LoginForm = () => {
     const response = await LoginService.login(username, password);
     if (response.status === 200) {
       localStorage.setItem(AUTH_TOKEN_ATTRIBUTE, response.data.token);
+      localStorage.removeItem(ANONYMOUS_ATTRIBUTE);
       setLoading(false);
       navigate(AUTH_ROUTES.MY_PROFILE);
     } else {

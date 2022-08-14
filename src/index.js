@@ -6,7 +6,7 @@ import Loading from "./components/loader/Loading";
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AuthenticatedRoute from './components/auth/AuthenticatedRoute';
-import PublicRoute from './components/auth/PublicRoute';
+import AuthenticateClosedRoute from './components/auth/AuthenticateClosedRoute';
 import { AUTH_ROUTES, PUBLIC_ROUTES } from './constants';
 import LocalizeProvider from './service/providers/LocalizeProvider';
 
@@ -18,11 +18,11 @@ const ForgotPassoword = React.lazy(() => import("./pages/forgotPassword/ForgotPa
 class Index extends React.Component {
 
   renderLogin = () => (
-    <PublicRoute>
+    <AuthenticateClosedRoute>
       <App>
         <Login />
       </App>
-    </PublicRoute>
+    </AuthenticateClosedRoute>
   );
 
   renderMyProfile = () => (
