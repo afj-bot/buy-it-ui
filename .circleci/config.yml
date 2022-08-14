@@ -94,6 +94,6 @@ workflows:
           context: 
             - OCTOPUS    
             - SLACK    
-          # filters:
-          #   branches:
-          #     only: master      
+          filters:
+            branches:
+              only: master      
