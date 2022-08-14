@@ -62,67 +62,66 @@ const Localization = ({ country, setCountry }) => {
   }, [open])
 
   return (
-        <div className='localization-item'>
-          <div className='localization-button'>
-            <IconButton
-            data-testid='open-localization'
-            ref={anchorRef}
-            aria-haspopup='true'
-            onClick={handleToggle}
-            >
-            <img
-              data-testid='default-image'
-              loading='lazy'
-              className='image'
-              src={`https://flagcdn.com/w20/${country}.png`}
-              srcSet={`https://flagcdn.com/w40/${country}.png 2x`}
-              alt=''
-            />
-            </IconButton>
-          </div>
-        <Popper
-          open={open}
-          anchorEl={anchorRef.current}
-          transition
-          disablePortal
+    <div className='localization-item'>
+      <div className='localization-button'>
+        <IconButton
+          data-testid='open-localization'
+          ref={anchorRef}
+          aria-haspopup='true'
+          onClick={handleToggle}
         >
-            {({ TransitionProps, placement }) => (
-            <Grow
-              {...TransitionProps}
-              style={{
-                transformOrigin:
-                  placement === 'bottom-start' ? 'left top' : 'left bottom'
-              }}
-            >
-              <Paper>
-                <ClickAwayListener onClickAway={handleClose}>
-                  <MenuList
-                    autoFocusItem={open}
-                    id='composition-menu'
-                    aria-labelledby='composition-button'
-                    onKeyDown={handleListKeyDown}
-                  >
-                    {countries.map((country) => (
-                      <MenuItem key={country.code} onClick={(e) => handleClose(e, country.code)}>
-                        <IconButton data-testid={`select-${country.code.toLowerCase()}`}>
-                            <img
-                                loading='lazy'
-                                className='image'
-                                src={`https://flagcdn.com/w20/${country.code.toLowerCase()}.png`}
-                                srcSet={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png 2x`}
-                                alt=''
-                            />
-                        </IconButton>
-                      </MenuItem>
-                    ))}
-
-                  </MenuList>
-                </ClickAwayListener>
-              </Paper>
-            </Grow>
-            )}
-        </Popper>
-        </div>
+          <img
+            data-testid='default-image'
+            loading='lazy'
+            className='image'
+            src={`https://flagcdn.com/w20/${country}.png`}
+            srcSet={`https://flagcdn.com/w40/${country}.png 2x`}
+            alt=''
+          />
+        </IconButton>
+      </div>
+      <Popper
+        open={open}
+        anchorEl={anchorRef.current}
+        transition
+        disablePortal
+      >
+        {({ TransitionProps, placement }) => (
+        <Grow
+          {...TransitionProps}
+            style={{
+              transformOrigin:
+              placement === 'bottom-start' ? 'left top' : 'left bottom'
+            }}
+        >
+          <Paper>
+            <ClickAwayListener onClickAway={handleClose}>
+              <MenuList
+                autoFocusItem={open}
+                id='composition-menu'
+                aria-labelledby='composition-button'
+                onKeyDown={handleListKeyDown}
+              >
+                {countries.map((country) => (
+                  <MenuItem key={country.code} onClick={(e) => handleClose(e, country.code)}>
+                    <IconButton data-testid={`select-${country.code.toLowerCase()}`}>
+                      <img
+                        loading='lazy'
+                        className='image'
+                        src={`https://flagcdn.com/w20/${country.code.toLowerCase()}.png`}
+                        srcSet={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png 2x`}
+                        alt=''
+                      />
+                    </IconButton>
+                  </MenuItem>
+                ))}
+              </MenuList>
+            </ClickAwayListener>
+          </Paper>
+        </Grow>
+        )}
+      </Popper>
+    </div>
   )
 }
 

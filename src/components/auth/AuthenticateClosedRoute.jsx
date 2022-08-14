@@ -7,7 +7,7 @@ import { PUBLIC_ROUTES, AUTH_TOKEN_ATTRIBUTE, ANONYMOUS_ATTRIBUTE } from '../../
 const AuthenticateClosedRoute = ({ children }) => {
   if (localStorage.getItem(AUTH_TOKEN_ATTRIBUTE) !== null && localStorage.getItem(ANONYMOUS_ATTRIBUTE) !== 'true') {
     return (
-            <Navigate to={PUBLIC_ROUTES.DASHBOARD} replace={true} />
+      <Navigate to={PUBLIC_ROUTES.DASHBOARD} replace={true} />
     )
   }
   return children

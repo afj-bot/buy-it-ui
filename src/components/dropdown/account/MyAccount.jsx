@@ -2,9 +2,9 @@ import React from 'react'
 
 const MyAccount = () => {
   return (
-        <div>
-            My Accoint
-        </div>
+    <div>
+      My Accoint
+    </div>
   )
 }
 

@@ -15,22 +15,22 @@ const Loading = ({ open, text = 'Wait ...' }) => {
   }, [open])
 
   return (
-        <Dialog open={isOpen}>
-            <DialogTitle
-                className="loader-title"
-                id="loader-title"
-                data-test-id="loader-title"
-            >
-                <span className="loader-title-text">{text}</span>
-            </DialogTitle>
-            <DialogContent>
-                <Grid container justifyContent="center">
-                    <Grid item>
-                        <CircularProgress />
-                    </Grid>
-                </Grid>
-            </DialogContent>
-        </Dialog>
+    <Dialog open={isOpen}>
+      <DialogTitle
+        className="loader-title"
+        id="loader-title"
+        data-testid="loader-title"
+      >
+        <span className="loader-title-text">{text}</span>
+      </DialogTitle>
+      <DialogContent>
+        <Grid container justifyContent="center">
+          <Grid item>
+            <CircularProgress />
+          </Grid>
+        </Grid>
+      </DialogContent>
+    </Dialog>
   )
 }
 

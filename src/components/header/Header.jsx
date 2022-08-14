@@ -79,22 +79,22 @@ const Header = () => {
   const isShowLogin = !location.pathname.match('login')
 
   return (
-        <Grid className="header" container direction="row">
-            <Grid container direction="row" className="menu-mobile">
-                <MenuMobile items={items} login={login} cartItems={cartItems} isShowLogin={isShowLogin} />
-            </Grid>
-            <Logo />
-            <Grid item className="main-menu">
-                <Grid container direction="row" className="menu-desktop">
-                    <MenuDesktop items={items} login={login} cartItems={cartItems} isShowLogin={isShowLogin}/>
-                </Grid>
-            </Grid>
-            <Grid item className="main-localization" alignItems="center" alignContent="center">
-                <Grid container>
-                    <Localization country={language} setCountry={handleLanguage}/>
-                </Grid>
-            </Grid>
+    <Grid className="header" container direction="row">
+      <Grid container direction="row" className="menu-mobile">
+          <MenuMobile items={items} login={login} cartItems={cartItems} isShowLogin={isShowLogin} />
+      </Grid>
+      <Logo />
+      <Grid item className="main-menu">
+        <Grid container direction="row" className="menu-desktop">
+          <MenuDesktop items={items} login={login} cartItems={cartItems} isShowLogin={isShowLogin}/>
         </Grid>
+      </Grid>
+      <Grid item className="main-localization" alignItems="center" alignContent="center">
+        <Grid container>
+          <Localization country={language} setCountry={handleLanguage}/>
+        </Grid>
+      </Grid>
+    </Grid>
   )
 }
 
