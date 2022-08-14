@@ -1,20 +1,20 @@
-import React, { useContext, useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
-import Input from '../inputs/Input'
-import Loading from '../loader/Loading'
-import Grid from '@mui/material/Grid'
-import Button from '@mui/material/Button'
-import Tooltip from '@mui/material/Tooltip'
-import LoginIcon from '@mui/icons-material/Login'
-import LoginService from '../../service/api/LoginService'
-import { ANONYMOUS_ATTRIBUTE, AUTH_ROUTES, AUTH_TOKEN_ATTRIBUTE, PUBLIC_ROUTES, OK } from '../../constants'
-import { LocalizeContext } from '../../service/providers/LocalizeProvider'
-import './LoginForm.css'
+import React, { useContext, useState } from "react"
+import { useNavigate, Link } from "react-router-dom"
+import Input from "../inputs/Input"
+import Loading from "../loader/Loading"
+import Grid from "@mui/material/Grid"
+import Button from "@mui/material/Button"
+import Tooltip from "@mui/material/Tooltip"
+import LoginIcon from "@mui/icons-material/Login"
+import LoginService from "../../service/api/LoginService"
+import { ANONYMOUS_ATTRIBUTE, AUTH_ROUTES, AUTH_TOKEN_ATTRIBUTE, PUBLIC_ROUTES, OK } from "../../constants"
+import { LocalizeContext } from "../../service/providers/LocalizeProvider"
+import "./LoginForm.css"
 
 const LoginForm = () => {
   const { getKeyValue } = useContext(LocalizeContext)
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
   const [isError, setError] = useState(false)
   const [isLoading, setLoading] = useState(false)
   const navigate = useNavigate()
@@ -43,34 +43,34 @@ const LoginForm = () => {
     setPassword(value)
   }
 
-  const disabled = () => username === '' || password === ''
+  const disabled = () => username === "" || password === ""
 
   const elementsMap = [
     {
-      row: <Input placeholder={getKeyValue('login.form.username.input')} id="username" type="text" value={username} error={isError} changeFunction={handleUsername} />
+      row: <Input placeholder={getKeyValue("login.form.username.input")} id="username" type="text" value={username} error={isError} changeFunction={handleUsername} />
     },
     {
-      row: <Input placeholder={getKeyValue('login.form.password.input')} id="pass" type="password" value={password} isPasswordField={true} error={isError} changeFunction={handlePassword} />
+      row: <Input placeholder={getKeyValue("login.form.password.input")} id="pass" type="password" value={password} isPasswordField={true} error={isError} changeFunction={handlePassword} />
     },
     {
       row: <>
-        <Tooltip title={getKeyValue('login.form.button.tooltip')} arrow placement="left" disableHoverListener={!disabled()} disableFocusListener={!disabled()}>
+        <Tooltip title={getKeyValue("login.form.button.tooltip")} arrow placement="left" disableHoverListener={!disabled()} disableFocusListener={!disabled()}>
           <span>
             <Button
               data-testid="login"
               fullWidth disabled={disabled()}
               onClick={login}>
-                {getKeyValue('login.form.button')}
+                {getKeyValue("login.form.button")}
               </Button>
           </span>
         </Tooltip>
-        <Tooltip title={getKeyValue('login.form.forgot.password.tooltip')} arrow>
+        <Tooltip title={getKeyValue("login.form.forgot.password.tooltip")} arrow>
           <Button
             data-testid="forgot-password"
             className="forgot-password"
             component={Link}
             to={PUBLIC_ROUTES.FORGOT_PASSWORD}>
-              {getKeyValue('login.form.forgot.password.button')}
+              {getKeyValue("login.form.forgot.password.button")}
           </Button>
         </Tooltip>
       </>
@@ -83,7 +83,7 @@ const LoginForm = () => {
       <Grid item className="title">
         <div className="center">
           <LoginIcon fontSize="large" />
-          <h2 style={{ paddingLeft: '2%' }}>{getKeyValue('login.form.title')}</h2>
+          <h2 style={{ paddingLeft: "2%" }}>{getKeyValue("login.form.title")}</h2>
         </div>
       </Grid>
       <Grid item>

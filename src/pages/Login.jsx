@@ -1,6 +1,6 @@
-import React from 'react'
-import LoginForm from '../components/forms/LoginForm'
-import './Login.css'
+import React from "react"
+import LoginForm from "../components/forms/LoginForm"
+import "./Login.css"
 
 function Login () {
   return (

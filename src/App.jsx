@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
-import './App.css'
-import { ANONYMOUS_ATTRIBUTE, AUTH_TOKEN_ATTRIBUTE, OK } from './constants'
-import Header from './components/header/Header'
-import apiInstance from './service/api/axios'
-import AuthService from './service/api/AuthService'
+import React, { useEffect } from "react"
+import PropTypes from "prop-types"
+import "./App.css"
+import { ANONYMOUS_ATTRIBUTE, AUTH_TOKEN_ATTRIBUTE, OK } from "./constants"
+import Header from "./components/header/Header"
+import apiInstance from "./service/api/axios"
+import AuthService from "./service/api/AuthService"
 
 const App = ({ children }) => {
   useEffect(() => {
@@ -14,7 +14,7 @@ const App = ({ children }) => {
         if (cookieResponse.status === OK) {
           const tokenResponse = await AuthService.authorize()
           localStorage.setItem(AUTH_TOKEN_ATTRIBUTE, tokenResponse.data.token)
-          localStorage.setItem(ANONYMOUS_ATTRIBUTE, 'true')
+          localStorage.setItem(ANONYMOUS_ATTRIBUTE, "true")
         }
       }
     }
@@ -28,8 +28,8 @@ const App = ({ children }) => {
 
   return (
     <>
-    <Header />
-    {children}
+      <Header />
+      {children}
     </>
   )
 }

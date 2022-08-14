@@ -1,13 +1,13 @@
-import React, { useEffect, useState, useRef } from 'react'
-import PropTypes from 'prop-types'
-import IconButton from '@mui/material/IconButton'
-import ClickAwayListener from '@mui/material/ClickAwayListener'
-import Grow from '@mui/material/Grow'
-import Paper from '@mui/material/Paper'
-import Popper from '@mui/material/Popper'
-import MenuList from '@mui/material/MenuList'
-import MenuItem from '@mui/material/MenuItem'
-import './Localization.css'
+import React, { useEffect, useState, useRef } from "react"
+import PropTypes from "prop-types"
+import IconButton from "@mui/material/IconButton"
+import ClickAwayListener from "@mui/material/ClickAwayListener"
+import Grow from "@mui/material/Grow"
+import Paper from "@mui/material/Paper"
+import Popper from "@mui/material/Popper"
+import MenuList from "@mui/material/MenuList"
+import MenuItem from "@mui/material/MenuItem"
+import "./Localization.css"
 
 const Localization = ({ country, setCountry }) => {
   const anchorRef = useRef(null)
@@ -15,16 +15,16 @@ const Localization = ({ country, setCountry }) => {
 
   const countries = [
     {
-      code: 'UA',
-      label: 'Ukrainian'
+      code: "UA",
+      label: "Ukrainian"
     },
     {
-      code: 'GB',
-      label: 'English'
+      code: "GB",
+      label: "English"
     },
     {
-      code: 'HU',
-      label: 'Hungarian'
+      code: "HU",
+      label: "Hungarian"
     }
   ]
 
@@ -44,10 +44,10 @@ const Localization = ({ country, setCountry }) => {
   }
 
   function handleListKeyDown (event) {
-    if (event.key === 'Tab') {
+    if (event.key === "Tab") {
       event.preventDefault()
       setOpen(false)
-    } else if (event.key === 'Escape') {
+    } else if (event.key === "Escape") {
       setOpen(false)
     }
   }
@@ -91,7 +91,7 @@ const Localization = ({ country, setCountry }) => {
           {...TransitionProps}
             style={{
               transformOrigin:
-              placement === 'bottom-start' ? 'left top' : 'left bottom'
+              placement === "bottom-start" ? "left top" : "left bottom"
             }}
         >
           <Paper>

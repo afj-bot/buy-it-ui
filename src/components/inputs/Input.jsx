@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import TextField from '@mui/material/TextField'
-import IconButton from '@mui/material/IconButton'
-import VisibilityIcon from '@mui/icons-material/Visibility'
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
-import './Input.css'
+import React, { useState } from "react"
+import PropTypes from "prop-types"
+import TextField from "@mui/material/TextField"
+import IconButton from "@mui/material/IconButton"
+import VisibilityIcon from "@mui/icons-material/Visibility"
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff"
+import "./Input.css"
 
 const Input = ({ id, placeholder, type, value, isPasswordField, error, changeFunction }) => {
   const [isSecured, setSecured] = useState(isPasswordField)
@@ -12,10 +12,10 @@ const Input = ({ id, placeholder, type, value, isPasswordField, error, changeFun
 
   const handleSecurity = () => {
     setSecured(!isSecured)
-    if (stateType === 'text') {
-      setStateType('password')
+    if (stateType === "text") {
+      setStateType("password")
     } else {
-      setStateType('text')
+      setStateType("text")
     }
   }
 

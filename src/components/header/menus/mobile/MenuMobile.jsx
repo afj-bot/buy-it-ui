@@ -1,25 +1,25 @@
-import React, { useState, createElement, useContext } from 'react'
-import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
-import Box from '@mui/material/Box'
-import Drawer from '@mui/material/Drawer'
-import List from '@mui/material/List'
-import Divider from '@mui/material/Divider'
-import ListItem from '@mui/material/ListItem'
-import ListItemButton from '@mui/material/ListItemButton'
-import ListItemIcon from '@mui/material/ListItemIcon'
-import MenuIcon from '@mui/icons-material/Menu'
-import ListItemText from '@mui/material/ListItemText'
-import IconButton from '@mui/material/IconButton'
-import { LocalizeContext } from '../../../../service/providers/LocalizeProvider'
-import './MenuMobile.css'
+import React, { useState, createElement, useContext } from "react"
+import { Link } from "react-router-dom"
+import PropTypes from "prop-types"
+import Box from "@mui/material/Box"
+import Drawer from "@mui/material/Drawer"
+import List from "@mui/material/List"
+import Divider from "@mui/material/Divider"
+import ListItem from "@mui/material/ListItem"
+import ListItemButton from "@mui/material/ListItemButton"
+import ListItemIcon from "@mui/material/ListItemIcon"
+import MenuIcon from "@mui/icons-material/Menu"
+import ListItemText from "@mui/material/ListItemText"
+import IconButton from "@mui/material/IconButton"
+import { LocalizeContext } from "../../../../service/providers/LocalizeProvider"
+import "./MenuMobile.css"
 
 const MenuMobile = ({ items, login, cartItems, isShowLogin }) => {
   const [open, setOpen] = useState(false)
   const { getKeyValue } = useContext(LocalizeContext)
 
   const toggleDrawer = () => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+    if (event.type === "keydown" && (event.key === "Tab" || event.key === "Shift")) {
       return
     }
     setOpen((prevOpen) => !prevOpen)
@@ -29,7 +29,7 @@ const MenuMobile = ({ items, login, cartItems, isShowLogin }) => {
         <div>
             <React.Fragment>
                 <IconButton onClick={toggleDrawer()}>
-                    <MenuIcon style={{ fontSize: '40px', margin: 'auto' }}/>
+                    <MenuIcon style={{ fontSize: "40px", margin: "auto" }}/>
                 </IconButton>
                 <Drawer
                     open={open}
@@ -41,7 +41,7 @@ const MenuMobile = ({ items, login, cartItems, isShowLogin }) => {
                         onClick={toggleDrawer()}
                         onKeyDown={toggleDrawer()}
                     >
-                        <List style={{ marginTop: '2%' }}>
+                        <List style={{ marginTop: "2%" }}>
                             {items.map((item) => (
                                 <ListItem key={item.value} disablePadding>
                                     <ListItemIcon>

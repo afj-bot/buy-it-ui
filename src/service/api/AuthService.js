@@ -1,7 +1,7 @@
 
-import apiInstance from './axios'
+import apiInstance from "./axios"
 
-const prefix = '/auth/anonymous'
+const prefix = "/auth/anonymous"
 
 class AuthService {
   async getCookie () {

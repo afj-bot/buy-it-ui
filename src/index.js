@@ -1,18 +1,18 @@
-import React, { Suspense } from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
+import React, { Suspense } from "react"
+import ReactDOM from "react-dom/client"
+import "./index.css"
 
-import Loading from './components/loader/Loading'
-import reportWebVitals from './reportWebVitals'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import AuthenticatedRoute from './components/auth/AuthenticatedRoute'
-import AuthenticateClosedRoute from './components/auth/AuthenticateClosedRoute'
-import { AUTH_ROUTES, PUBLIC_ROUTES } from './constants'
-import LocalizeProvider from './service/providers/LocalizeProvider'
+import Loading from "./components/loader/Loading"
+import reportWebVitals from "./reportWebVitals"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+import AuthenticatedRoute from "./components/auth/AuthenticatedRoute"
+import AuthenticateClosedRoute from "./components/auth/AuthenticateClosedRoute"
+import { AUTH_ROUTES, PUBLIC_ROUTES } from "./constants"
+import LocalizeProvider from "./service/providers/LocalizeProvider"
 
-const App = React.lazy(() => import('./App'))
-const Login = React.lazy(() => import('./pages/Login'))
-const ForgotPassoword = React.lazy(() => import('./pages/forgotPassword/ForgotPassoword'))
+const App = React.lazy(() => import("./App"))
+const Login = React.lazy(() => import("./pages/Login"))
+const ForgotPassoword = React.lazy(() => import("./pages/forgotPassword/ForgotPassoword"))
 
 class Index extends React.Component {
   renderLogin = () => (
@@ -47,7 +47,7 @@ class Index extends React.Component {
   }
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'))
+const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
   <React.StrictMode>
     <LocalizeProvider>

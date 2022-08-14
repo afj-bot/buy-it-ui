@@ -1,11 +1,11 @@
 
-import apiInstance from './axios'
+import apiInstance from "./axios"
 
 class LocalizeService {
   async localize (locale) {
-    return await apiInstance.get('/localize', {
+    return await apiInstance.get("/localize", {
       headers: {
-        'Accept-Language': locale
+        "Accept-Language": locale
       }
     })
   }

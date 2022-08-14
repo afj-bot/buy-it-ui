@@ -4,8 +4,8 @@ module.exports = {
     es2021: true
   },
   extends: [
-    'plugin:react/recommended',
-    'standard'
+    "plugin:react/recommended",
+    "standard"
   ],
   globals: {
     eslint: true,
@@ -26,18 +26,19 @@ module.exports = {
     ecmaFeatures: {
       jsx: true
     },
-    ecmaVersion: 'latest',
-    sourceType: 'module'
+    ecmaVersion: "latest",
+    sourceType: "module"
   },
   plugins: [
-    'react'
+    "react"
   ],
   rules: {
-    'no-magic-numbers': ['error', { ignore: [-1, 0, 1, 2, 3, 4, 5] }]
+    "no-magic-numbers": ["error", { ignore: [-1, 0, 1, 2, 3, 4, 5] }],
+    quotes: ["error", "double"]
   },
   settings: {
     react: {
-      version: 'detect'
+      version: "detect"
     }
   }
 }

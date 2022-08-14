@@ -1,7 +1,7 @@
 
-import apiInstance from './axios'
+import apiInstance from "./axios"
 
-const prefix = '/login'
+const prefix = "/login"
 
 class LoginService {
   async login (username, password) {
