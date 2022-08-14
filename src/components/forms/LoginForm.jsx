@@ -67,7 +67,7 @@ const LoginForm = () => {
         <Tooltip title={getKeyValue('login.form.forgot.password.tooltip')} arrow>
           <Button
             data-testid="forgot-password"
-            className="change-password"
+            className="forgot-password"
             component={Link}
             to={PUBLIC_ROUTES.FORGOT_PASSWORD}>
               {getKeyValue('login.form.forgot.password.button')}

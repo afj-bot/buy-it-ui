@@ -23,6 +23,10 @@
 }
 
 @media screen and (min-width: 240px) and (max-width: 960px) {
+    .image {
+        width: 24px;
+        height: 18px;
+    }
 
     .localization-item {
         height: 5em;

@@ -34,5 +34,10 @@ module.exports = {
   ],
   rules: {
     'no-magic-numbers': ['error', { ignore: [-1, 0, 1, 2, 3, 4, 5] }]
+  },
+  settings: {
+    react: {
+      version: 'detect'
+    }
   }
 }
