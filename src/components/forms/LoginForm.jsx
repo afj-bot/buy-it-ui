@@ -1,15 +1,17 @@
-import React, { useContext, useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
-import Input from '../inputs/Input'
-import Loading from '../loader/Loading'
-import Grid from '@mui/material/Grid'
-import Button from '@mui/material/Button'
-import Tooltip from '@mui/material/Tooltip'
-import LoginIcon from '@mui/icons-material/Login'
-import LoginService from '../../service/api/LoginService'
-import './LoginForm.css'
-import { AUTH_ROUTES, AUTH_TOKEN_ATTRIBUTE, PUBLIC_ROUTES, OK } from '../../constants'
-import { LocalizeContext } from '../../service/providers/LocalizeProvider'
+import React, { useContext, useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import Input from '../inputs/Input';
+import Loading from '../loader/Loading';
+import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import { Link } from "react-router-dom";
+import LoginIcon from '@mui/icons-material/Login';
+import LoginService from "../../service/api/LoginService";
+import apiInstance from "../../service/api/axios";
+import "./LoginForm.css";
+import { ANONYMOUS_ATTRIBUTE, AUTH_ROUTES, AUTH_TOKEN_ATTRIBUTE, PUBLIC_ROUTES, OK } from '../../constants';
+import { LocalizeContext } from '../../service/providers/LocalizeProvider';
 
 const LoginForm = () => {
   const { getKeyValue } = useContext(LocalizeContext)
@@ -20,12 +22,13 @@ const LoginForm = () => {
   const navigate = useNavigate()
 
   const login = async () => {
-    setLoading(true)
-    const response = await LoginService.login(username, password)
+    setLoading(true);
+    const response = await LoginService.login(username, password);
     if (response.status === OK) {
-      localStorage.setItem(AUTH_TOKEN_ATTRIBUTE, response.data.token)
-      setLoading(false)
-      navigate(AUTH_ROUTES.MY_PROFILE)
+      localStorage.setItem(AUTH_TOKEN_ATTRIBUTE, response.data.token);
+      localStorage.removeItem(ANONYMOUS_ATTRIBUTE);
+      setLoading(false);
+      navigate(AUTH_ROUTES.MY_PROFILE);
     } else {
       setLoading(false)
       setError(true)

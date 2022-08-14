@@ -21,9 +21,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "serve-local": "cross-env REACT_APP_ENV=TEST REACT_APP_API_URL=localhost webpack serve --mode development",
     "serve": "cross-env REACT_APP_API_URL=api-dev.buy-it.afj-solution.com webpack serve --mode development",
-    "build": "cross-env REACT_APP_API_URL=api-dev.buy-it.afj-solution.com webpack --mode development",
-    "build-prod": "cross-env REACT_APP_API_URL=api.buy-it.afj-solution.com webpack --mode production",
+    "build": "cross-env REACT_APP_ENV=DEV REACT_APP_API_URL=api-dev.buy-it.afj-solution.com webpack --mode development",
+    "build-prod": "cross-env REACT_APP_ENV=PROD REACT_APP_API_URL=api.buy-it.afj-solution.com webpack --mode production",
     "test": "jest",
     "generate-allure-report": "./node_modules/allure-commandline/bin/allure generate --clean",
     "lint": "eslint src/**/*.jsx src/*.jsx src/**/**/*.jsx src/*.js src/**/*.js src/**/**/*.js"

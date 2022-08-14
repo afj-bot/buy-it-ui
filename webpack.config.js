@@ -17,7 +17,7 @@ const plugins = () => (
       minRatio: 0.8,
     }),
     new webpack.DefinePlugin({
-      "process.env.REACT_APP_ENV": JSON.stringify("PROD"),
+      "process.env.REACT_APP_ENV": JSON.stringify(process.env.REACT_APP_ENV),
       "process.env.REACT_APP_API_URL": JSON.stringify(
         process.env.REACT_APP_API_URL
       ),
