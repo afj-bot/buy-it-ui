@@ -34,7 +34,8 @@ module.exports = {
   ],
   rules: {
     "no-magic-numbers": ["error", { ignore: [-1, 0, 1, 2, 3, 4, 5] }],
-    quotes: ["error", "double"]
+    quotes: ["error", "double"],
+    "semi": ["always"]
   },
   settings: {
     react: {

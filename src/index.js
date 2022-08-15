@@ -13,8 +13,16 @@ import LocalizeProvider from "./service/providers/LocalizeProvider"
 const App = React.lazy(() => import("./App"))
 const Login = React.lazy(() => import("./pages/Login"))
 const ForgotPassoword = React.lazy(() => import("./pages/forgotPassword/ForgotPassoword"))
+const Product = React.lazy(() => import("./pages/product/Product"))
 
 class Index extends React.Component {
+  renderProduct = () => (
+    <AuthenticatedRoute>
+      <App>
+        <Product />
+      </App>
+    </AuthenticatedRoute>
+  )
   renderLogin = () => (
     <AuthenticateClosedRoute>
       <App>
@@ -34,7 +42,7 @@ class Index extends React.Component {
         <Suspense fallback={<Loading open />}>
           <Routes>
             <Route path={PUBLIC_ROUTES.DASHBOARD} element={<App />} />
-            <Route path={PUBLIC_ROUTES.PRODUCTS} element={<App />} />
+            <Route path={PUBLIC_ROUTES.PRODUCTS} element={this.renderProduct()} />
             <Route path={PUBLIC_ROUTES.DELIVERY} element={<App />} />
             <Route path={PUBLIC_ROUTES.CONTACT_US} element={<App />} />
             <Route path={PUBLIC_ROUTES.LOGIN} element={this.renderLogin()} />
