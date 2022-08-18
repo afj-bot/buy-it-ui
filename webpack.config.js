@@ -1,8 +1,7 @@
-const path = require("path")
-const resolve = require("path").resolve
-const webpack = require("webpack")
-const HtmlWebpackPlugin = require("html-webpack-plugin")
-const CompressionPlugin = require("compression-webpack-plugin")
+const path = require("path");
+const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
 
 const plugins = () => (
   [
@@ -27,7 +26,7 @@ const plugins = () => (
       )
     })
   ]
-)
+);
 
 module.exports = {
   output: {
@@ -85,4 +84,4 @@ module.exports = {
     ]
   },
   plugins: plugins()
-}
+};
