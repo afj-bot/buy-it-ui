@@ -13,18 +13,18 @@ const comunicationItem = [
   {
     title: "footer.address.title",
     subtitle: "footer.address.subtitle",
-    icon: PlaceIcon,
+    icon: PlaceIcon
   },
   {
     title: "footer.telephone.title",
     subtitle: "footer.telephone.subtitle",
-    icon: LocalPhoneIcon,
+    icon: LocalPhoneIcon
   },
   {
     title: "footer.email.title",
     subtitle: "footer.email.subtitle",
-    icon: MailIcon,
-  },
+    icon: MailIcon
+  }
 ];
 const Footer = () => {
   const isMobile = useMediaQuery("(max-width:767px)");

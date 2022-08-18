@@ -9,7 +9,7 @@ export const PUBLIC_ROUTES = {
   DELIVERY: "/delivery",
   CONTACT_US: "/contact-us",
   FORGOT_PASSWORD: "/forgot-password"
-}
+};
 
 /**
 * Routes that need to have token in the localstorage
@@ -17,11 +17,11 @@ export const PUBLIC_ROUTES = {
 export const AUTH_ROUTES = {
   LOGOUT: "/logout",
   MY_PROFILE: "/profile"
-}
+};
 
 /**
 * Admin routes that need to have admin permission to access
 */
 export const ADMIN_ROUTES = {
   ADMIN: "/admin"
-}
+};

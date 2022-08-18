@@ -27,7 +27,7 @@ const Header = () => {
   );
 
   useEffect(() => {
-    async function getContent() {
+    async function getContent () {
       const response = await LocalizeService.localize(language);
       updateResource(response.data);
     }
@@ -45,37 +45,37 @@ const Header = () => {
     {
       value: "header.product.button",
       link: PUBLIC_ROUTES.PRODUCTS,
-      icon: <StoreIcon />,
+      icon: <StoreIcon />
     },
     {
       value: "header.delivery.button",
       link: PUBLIC_ROUTES.DELIVERY,
-      icon: <LocalShippingIcon />,
+      icon: <LocalShippingIcon />
     },
     {
       value: "header.contact-us.button",
       link: PUBLIC_ROUTES.CONTACT_US,
-      icon: <PermPhoneMsgIcon />,
-    },
+      icon: <PermPhoneMsgIcon />
+    }
   ];
 
   const login = {
     value: "header.login.button",
     link: PUBLIC_ROUTES.LOGIN,
-    icon: LoginIcon,
+    icon: LoginIcon
   };
 
   const cartItems = [
     {
       value: "header.cart.button",
       link: "/my/cart",
-      icon: ShoppingCartIcon,
+      icon: ShoppingCartIcon
     },
     {
       value: "header.search.button",
       link: "/search",
-      icon: SearchIcon,
-    },
+      icon: SearchIcon
+    }
   ];
 
   const location = useLocation();

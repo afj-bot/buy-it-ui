@@ -1,4 +1,5 @@
 import React, { createElement, useContext } from "react";
+import PropTypes from "prop-types";
 import Grid from "@mui/material/Grid";
 import "./Comunication.css";
 import { LocalizeContext } from "../../../service/providers/LocalizeProvider";
@@ -16,6 +17,12 @@ const Comunication = ({ icon, title, subtitle }) => {
       </Grid>
     </Grid>
   );
+};
+
+Comunication.propTypes = {
+  icon: PropTypes.node.isRequired,
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired
 };
 
 export default Comunication;

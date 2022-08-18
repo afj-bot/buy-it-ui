@@ -36,7 +36,7 @@ const Loading = ({ open, text = "Wait ..." }) => {
 
 Loading.propTypes = {
   open: PropTypes.bool,
-  text: PropTypes.string,
+  text: PropTypes.string
 };
 
 export default Loading;

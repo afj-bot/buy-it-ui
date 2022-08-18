@@ -1,15 +1,15 @@
-import React, { useContext, createElement } from "react"
-import PropTypes from "prop-types"
-import { Link } from "react-router-dom"
-import Grid from "@mui/material/Grid"
-import Button from "@mui/material/Button"
-import { LocalizeContext } from "../../../../service/providers/LocalizeProvider"
-import IconButton from "@mui/material/IconButton"
+import React, { useContext, createElement } from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
+import { LocalizeContext } from "../../../../service/providers/LocalizeProvider";
+import IconButton from "@mui/material/IconButton";
 
-import "./MenuDesktop.css"
+import "./MenuDesktop.css";
 
 const MenuDesktop = ({ items, login, cartItems, isShowLogin }) => {
-  const { getKeyValue } = useContext(LocalizeContext)
+  const { getKeyValue } = useContext(LocalizeContext);
 
   return (
         <>
@@ -35,14 +35,14 @@ const MenuDesktop = ({ items, login, cartItems, isShowLogin }) => {
             </Grid>
         </Grid>
         </>
-  )
-}
+  );
+};
 
 MenuDesktop.propTypes = {
   items: PropTypes.array.isRequired,
   login: PropTypes.object.isRequired,
   cartItems: PropTypes.array.isRequired,
   isShowLogin: PropTypes.bool.isRequired
-}
+};
 
-export default MenuDesktop
+export default MenuDesktop;

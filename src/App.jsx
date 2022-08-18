@@ -10,7 +10,7 @@ import "./App.css";
 
 const App = ({ children }) => {
   useEffect(() => {
-    async function getAnonymous() {
+    async function getAnonymous () {
       if (localStorage.getItem(AUTH_TOKEN_ATTRIBUTE) === null) {
         const cookieResponse = await AuthService.getCookie();
         if (cookieResponse.status === OK) {
@@ -40,7 +40,7 @@ const App = ({ children }) => {
 };
 
 App.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node
 };
 
 export default App;

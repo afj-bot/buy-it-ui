@@ -12,7 +12,7 @@ import {
   AUTH_ROUTES,
   AUTH_TOKEN_ATTRIBUTE,
   PUBLIC_ROUTES,
-  OK,
+  OK
 } from "../../constants";
 import { LocalizeContext } from "../../service/providers/LocalizeProvider";
 import "./LoginForm.css";
@@ -62,7 +62,7 @@ const LoginForm = () => {
           error={isError}
           changeFunction={handleUsername}
         />
-      ),
+      )
     },
     {
       row: (
@@ -75,7 +75,7 @@ const LoginForm = () => {
           error={isError}
           changeFunction={handlePassword}
         />
-      ),
+      )
     },
     {
       row: (
@@ -113,8 +113,8 @@ const LoginForm = () => {
             </Button>
           </Tooltip>
         </>
-      ),
-    },
+      )
+    }
   ];
 
   return (

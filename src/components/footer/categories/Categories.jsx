@@ -5,12 +5,12 @@ import Category from "./Category";
 const categories = [
   {
     title: "Car",
-    link: "car",
+    link: "car"
   },
   {
     title: "Flower",
-    link: "flower",
-  },
+    link: "flower"
+  }
 ];
 const Categories = () => (
   <Grid container direction="row" justifyItems="center" alignItems="center">
