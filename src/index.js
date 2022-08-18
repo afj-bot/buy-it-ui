@@ -1,4 +1,4 @@
-import React, { Suspense } from "react"
+import React, { createElement, Suspense } from "react"
 import ReactDOM from "react-dom/client"
 import "./index.css"
 
@@ -13,26 +13,25 @@ import LocalizeProvider from "./service/providers/LocalizeProvider"
 const App = React.lazy(() => import("./App"))
 const Login = React.lazy(() => import("./pages/Login"))
 const ForgotPassoword = React.lazy(() => import("./pages/forgotPassword/ForgotPassoword"))
+
 const Product = React.lazy(() => import("./pages/product/Product"))
+const MyProfile = React.lazy(() => import("./pages/profile/MyProfile"));
 
 class Index extends React.Component {
-  renderProduct = () => (
-    <AuthenticatedRoute>
-      <App>
-        <Product />
-      </App>
-    </AuthenticatedRoute>
-  )
-  renderLogin = () => (
+
+  renderAuthenticateClosedRoute = (element) => (
     <AuthenticateClosedRoute>
       <App>
-        <Login />
+        {createElement(element)}
       </App>
     </AuthenticateClosedRoute>
   )
 
-  renderMyProfile = () => (
+  renderAuthenticateRoute = (element) => (
     <AuthenticatedRoute>
+      <App>
+        {createElement(element)}
+      </App>
     </AuthenticatedRoute>
   )
 
@@ -42,12 +41,15 @@ class Index extends React.Component {
         <Suspense fallback={<Loading open />}>
           <Routes>
             <Route path={PUBLIC_ROUTES.DASHBOARD} element={<App />} />
-            <Route path={PUBLIC_ROUTES.PRODUCTS} element={this.renderProduct()} />
             <Route path={PUBLIC_ROUTES.DELIVERY} element={<App />} />
             <Route path={PUBLIC_ROUTES.CONTACT_US} element={<App />} />
-            <Route path={PUBLIC_ROUTES.LOGIN} element={this.renderLogin()} />
-            <Route path={PUBLIC_ROUTES.FORGOT_PASSWORD} element={<ForgotPassoword />} />
-            <Route path={AUTH_ROUTES.MY_PROFILE} element={this.renderMyProfile()} />
+
+            <Route path={PUBLIC_ROUTES.PRODUCTS} element={this.renderAuthenticateRoute(Product)} />
+            <Route path={AUTH_ROUTES.MY_PROFILE} element={this.renderAuthenticateRoute(MyProfile)} />
+
+            <Route path={PUBLIC_ROUTES.LOGIN} element={this.renderAuthenticateClosedRoute(Login)} />
+            <Route path={PUBLIC_ROUTES.FORGOT_PASSWORD} element={this.renderAuthenticateClosedRoute(ForgotPassoword)} />
+
           </Routes>
         </Suspense>
       </Router>

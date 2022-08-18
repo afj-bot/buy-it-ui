@@ -1,6 +1,6 @@
 .footer {
     width: 100vw;
-    min-height: 55vh;
+    min-height: 25vh;
     height: 100%;
     background: #0D7377;
 }
@@ -21,7 +21,7 @@
 }
 
 .footer-item {
-    width: 98vw;
+    width: 100vw;
 }
 
 .footer-item-mobile {
@@ -35,7 +35,7 @@
 }
 
 .categories {
-    width: 75%;
+    width: 65%;
     height: 11vh;
 }
 

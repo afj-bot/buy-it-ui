@@ -16,7 +16,7 @@ export const PUBLIC_ROUTES = {
 */
 export const AUTH_ROUTES = {
   LOGOUT: "/logout",
-  MY_PROFILE: "/profile/me"
+  MY_PROFILE: "/profile"
 }
 
 /**

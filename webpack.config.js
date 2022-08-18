@@ -1,4 +1,5 @@
 const path = require('path');
+const resolve = require('path').resolve;
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin");
@@ -62,7 +63,7 @@ module.exports = {
           options: {
             name: '[name].[ext]',
             outputPath: 'assets/images/',
-            publicPath: 'assets/images/',
+            publicPath: '/assets/images/',
           }
         }]
       },
@@ -73,7 +74,7 @@ module.exports = {
           options: {
             name: '[name].[ext]',
             outputPath: 'assets/fonts/',
-            publicPath: 'assets/fonts/'
+            publicPath: '/assets/fonts/'
           }
         }]
       },

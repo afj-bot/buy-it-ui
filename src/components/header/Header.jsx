@@ -8,7 +8,7 @@ import LocalizeService from "../../service/api/LocalizeService";
 import { LocalizeContext } from "../../service/providers/LocalizeProvider";
 import "./Header.css";
 
-import { LANGUAGE_ATTRIBUTE } from "../../constants";
+import { LANGUAGE_ATTRIBUTE, PUBLIC_ROUTES } from "../../constants";
 import apiInstance from "../../service/api/axios";
 import Logo from "../logo/Logo";
 import MenuDesktop from "./menus/desktop/MenuDesktop";
@@ -44,24 +44,24 @@ const Header = () => {
   const items = [
     {
       value: "header.product.button",
-      link: "/products",
+      link: PUBLIC_ROUTES.PRODUCTS,
       icon: <StoreIcon />,
     },
     {
       value: "header.delivery.button",
-      link: "/delivery",
+      link: PUBLIC_ROUTES.DELIVERY,
       icon: <LocalShippingIcon />,
     },
     {
       value: "header.contact-us.button",
-      link: "/contact-us",
+      link: PUBLIC_ROUTES.CONTACT_US,
       icon: <PermPhoneMsgIcon />,
     },
   ];
 
   const login = {
     value: "header.login.button",
-    link: "/login",
+    link: PUBLIC_ROUTES.LOGIN,
     icon: LoginIcon,
   };
 

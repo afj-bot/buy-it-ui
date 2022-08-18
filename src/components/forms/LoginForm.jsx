@@ -93,6 +93,7 @@ const LoginForm = () => {
                 fullWidth
                 disabled={disabled()}
                 onClick={login}
+                className="button"
               >
                 {getKeyValue("login.form.button")}
               </Button>
@@ -104,7 +105,7 @@ const LoginForm = () => {
           >
             <Button
               data-testid="forgot-password"
-              className="forgot-password"
+              className="forgot-password button"
               component={Link}
               to={PUBLIC_ROUTES.FORGOT_PASSWORD}
             >

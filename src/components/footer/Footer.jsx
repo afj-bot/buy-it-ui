@@ -11,18 +11,18 @@ import "./Footer.css";
 
 const comunicationItem = [
   {
-    title: "Address",
-    subtitle: "Marii Zankovetskoi Street, 17, 88015, Ukraine",
+    title: "footer.address.title",
+    subtitle: "footer.address.subtitle",
     icon: PlaceIcon,
   },
   {
-    title: "Telephone",
-    subtitle: "+380987100XXX",
+    title: "footer.telephone.title",
+    subtitle: "footer.telephone.subtitle",
     icon: LocalPhoneIcon,
   },
   {
-    title: "Email",
-    subtitle: "info-buy-it@afj-solution.com",
+    title: "footer.email.title",
+    subtitle: "footer.email.subtitle",
     icon: MailIcon,
   },
 ];
