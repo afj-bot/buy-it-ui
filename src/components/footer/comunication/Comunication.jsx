@@ -8,21 +8,21 @@ const Comunication = ({ icon, title, subtitle }) => {
   const { getKeyValue } = useContext(LocalizeContext);
   return (
     <Grid container className="comunication-item" direction="column">
-      <Grid item className="icon-container">
+      <Grid item className="icon-container" data-testid={`icon-${title}`}>
         {createElement(icon, { fontSize: "large" })}
       </Grid>
       <Grid item className="text">
-        <div>{getKeyValue(title)}</div>
-        <div>{getKeyValue(subtitle)}</div>
+        <div data-testid={title}>{getKeyValue(title)}</div>
+        <div data-testid={subtitle}>{getKeyValue(subtitle)}</div>
       </Grid>
     </Grid>
   );
 };
 
 Comunication.propTypes = {
-  icon: PropTypes.node.isRequired,
+  icon: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired
+  subtitle: PropTypes.string.isRequired,
 };
 
 export default Comunication;
