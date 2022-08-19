@@ -11,7 +11,7 @@ const Comunication = ({ icon, title, subtitle }) => {
       <Grid item className="icon-container" data-testid={`icon-${title}`}>
         {createElement(icon, { fontSize: "large" })}
       </Grid>
-      <Grid item className="text">
+      <Grid item className="footer-text">
         <div data-testid={title}>{getKeyValue(title)}</div>
         <div data-testid={subtitle}>{getKeyValue(subtitle)}</div>
       </Grid>

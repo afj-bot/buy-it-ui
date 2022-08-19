@@ -1,7 +1,7 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
   },
   extends: [
     "plugin:react/recommended",
@@ -35,7 +35,13 @@ module.exports = {
   rules: {
     "no-magic-numbers": ["error", { ignore: [0, 1, 2, 3, 4, 5] }],
     quotes: ["error", "double"],
-    semi: ["error", "always"]
+    semi: ["error", "always"],
+    "space-before-function-paren": ["error", "always"],
+    "comma-dangle": ["error", {
+      arrays: "never",
+      objects: "awlays",
+      functions: "awlays"
+    }]
   },
   settings: {
     react: {

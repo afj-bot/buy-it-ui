@@ -3,8 +3,8 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import LoginForm from "../LoginForm";
 import "@testing-library/jest-dom";
 import { BrowserRouter } from "react-router-dom";
-import { LocalizeContext } from "../../../service/providers/LocalizeProvider";
-import axios from "../../../service/api/axios";
+import { LocalizeContext } from "../../../../service/providers/LocalizeProvider";
+import axios from "../../../../service/api/axios";
 
 const resource = {
   "login.form.title": "Log In",

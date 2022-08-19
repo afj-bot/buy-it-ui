@@ -8,7 +8,8 @@ export const PUBLIC_ROUTES = {
   PRODUCTS: "/products",
   DELIVERY: "/delivery",
   CONTACT_US: "/contact-us",
-  FORGOT_PASSWORD: "/forgot-password"
+  FORGOT_PASSWORD: "/forgot-password",
+  REGISTRATION: "/registration"
 };
 
 /**

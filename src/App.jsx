@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Grid from "@mui/material/Grid";
 import { ANONYMOUS_ATTRIBUTE, AUTH_TOKEN_ATTRIBUTE, OK } from "./constants";
@@ -9,8 +9,11 @@ import AuthService from "./service/api/AuthService";
 import "./App.css";
 
 const App = ({ children }) => {
+  const [isShowRegistrationAndLogin, setShowRegistrationAndLogin] =
+    useState(true);
+
   useEffect(() => {
-    async function getAnonymous () {
+    async function getAnonymous() {
       if (localStorage.getItem(AUTH_TOKEN_ATTRIBUTE) === null) {
         const cookieResponse = await AuthService.getCookie();
         if (cookieResponse.status === OK) {
@@ -26,11 +29,14 @@ const App = ({ children }) => {
       const token = localStorage.getItem(AUTH_TOKEN_ATTRIBUTE);
       apiInstance.defaults.headers.Authorization = `Bearer ${token}`;
     }
+    setShowRegistrationAndLogin(
+      new Boolean().valueOf(localStorage.getItem(ANONYMOUS_ATTRIBUTE))
+    );
   }, []);
 
   return (
     <>
-      <Header />
+      <Header displayLoginAndRegisration={isShowRegistrationAndLogin} />
       <Grid container className="content">
         {children}
       </Grid>
@@ -40,7 +46,7 @@ const App = ({ children }) => {
 };
 
 App.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 export default App;

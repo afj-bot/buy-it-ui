@@ -1,21 +1,11 @@
 import React, { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import Input from "../inputs/Input";
-import Loading from "../loader/Loading";
 import Grid from "@mui/material/Grid";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
 import LoginIcon from "@mui/icons-material/Login";
-import LoginService from "../../service/api/LoginService";
-import {
-  ANONYMOUS_ATTRIBUTE,
-  AUTH_ROUTES,
-  AUTH_TOKEN_ATTRIBUTE,
-  PUBLIC_ROUTES,
-  OK
-} from "../../constants";
-import { LocalizeContext } from "../../service/providers/LocalizeProvider";
-import "./LoginForm.css";
+import LoginService from "../../../service/api/LoginService";
+import Title from "../title/Title";
+
+import "./Form.css";
 
 const LoginForm = () => {
   const { getKeyValue } = useContext(LocalizeContext);
@@ -51,6 +41,58 @@ const LoginForm = () => {
 
   const disabled = () => username === "" || password === "";
 
+  const buttonRow = () => (
+    <Grid container direction="column">
+      <Tooltip
+        title={getKeyValue("login.form.button.tooltip")}
+        arrow
+        placement="left"
+        disableHoverListener={!disabled()}
+        disableFocusListener={!disabled()}
+      >
+        <span>
+          <Button
+            data-testid="login"
+            fullWidth
+            disabled={disabled()}
+            onClick={login}
+            className="button"
+          >
+            {getKeyValue("login.form.button")}
+          </Button>
+        </span>
+      </Tooltip>
+      <Divider>
+        <span className="text uppercase">
+          {getKeyValue("login.form.or.text")}
+        </span>
+      </Divider>
+      <Button
+        data-testid="registration"
+        className="button"
+        component={Link}
+        to={PUBLIC_ROUTES.REGISTRATION}
+      >
+        {getKeyValue("login.form.registration.button")}
+      </Button>
+      <div className="forgot-password-container">
+        <Tooltip
+          title={getKeyValue("login.form.forgot.password.tooltip")}
+          arrow
+        >
+          <Button
+            data-testid="forgot-password"
+            className="forgot-password button"
+            component={Link}
+            to={PUBLIC_ROUTES.FORGOT_PASSWORD}
+          >
+            {getKeyValue("login.form.forgot.password.button")}
+          </Button>
+        </Tooltip>
+      </div>
+    </Grid>
+  );
+
   const elementsMap = [
     {
       row: (
@@ -62,7 +104,7 @@ const LoginForm = () => {
           error={isError}
           changeFunction={handleUsername}
         />
-      )
+      ),
     },
     {
       row: (
@@ -75,59 +117,17 @@ const LoginForm = () => {
           error={isError}
           changeFunction={handlePassword}
         />
-      )
+      ),
     },
     {
-      row: (
-        <>
-          <Tooltip
-            title={getKeyValue("login.form.button.tooltip")}
-            arrow
-            placement="left"
-            disableHoverListener={!disabled()}
-            disableFocusListener={!disabled()}
-          >
-            <span>
-              <Button
-                data-testid="login"
-                fullWidth
-                disabled={disabled()}
-                onClick={login}
-                className="button"
-              >
-                {getKeyValue("login.form.button")}
-              </Button>
-            </span>
-          </Tooltip>
-          <Tooltip
-            title={getKeyValue("login.form.forgot.password.tooltip")}
-            arrow
-          >
-            <Button
-              data-testid="forgot-password"
-              className="forgot-password button"
-              component={Link}
-              to={PUBLIC_ROUTES.FORGOT_PASSWORD}
-            >
-              {getKeyValue("login.form.forgot.password.button")}
-            </Button>
-          </Tooltip>
-        </>
-      )
-    }
+      row: buttonRow(),
+    },
   ];
 
   return (
     <Grid container direction="column" className="form">
-      {<Loading open={isLoading} />}
-      <Grid item className="title">
-        <div className="center">
-          <LoginIcon fontSize="large" />
-          <h2 style={{ paddingLeft: "2%" }}>
-            {getKeyValue("login.form.title")}
-          </h2>
-        </div>
-      </Grid>
+      <Loading open={isLoading} />
+      <Title text={getKeyValue("login.form.title")} icon={LoginIcon} />
       <Grid item>
         <Grid container direction="column" className="inputs-box">
           {elementsMap.map((ele, index) => (

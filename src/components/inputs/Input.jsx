@@ -6,7 +6,16 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import "./Input.css";
 
-const Input = ({ id, placeholder, type, value, isPasswordField, error, changeFunction }) => {
+const Input = ({
+  id,
+  placeholder,
+  type,
+  value,
+  isPasswordField,
+  fullWidth,
+  error,
+  changeFunction,
+}) => {
   const [isSecured, setSecured] = useState(isPasswordField);
   const [stateType, setStateType] = useState(type);
 
@@ -29,7 +38,7 @@ const Input = ({ id, placeholder, type, value, isPasswordField, error, changeFun
           <VisibilityOffIcon fontSize="small" data-test-id="security-off" />
         )}
       </IconButton>
-    )
+    ),
   });
 
   return (
@@ -39,12 +48,11 @@ const Input = ({ id, placeholder, type, value, isPasswordField, error, changeFun
       data-testid={id}
       placeholder={placeholder}
       type={stateType}
-      fullWidth
+      fullWidth={fullWidth}
       value={value}
       error={error}
-      InputProps={isPasswordField && securityInput()
-      }
-      onChange={e => changeFunction(e.target.value)}
+      InputProps={isPasswordField && securityInput()}
+      onChange={(e) => changeFunction(e.target.value)}
     />
   );
 };
@@ -55,8 +63,9 @@ Input.propTypes = {
   type: PropTypes.string.isRequired,
   value: PropTypes.string,
   isPasswordField: PropTypes.bool,
+  fullWidth: PropTypes.bool,
   error: PropTypes.bool,
-  changeFunction: PropTypes.func.isRequired
+  changeFunction: PropTypes.func.isRequired,
 };
 
 export default Input;

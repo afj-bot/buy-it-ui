@@ -1,0 +1,19 @@
+.inputs-box {
+    margin-top: 5%;
+}
+
+.row {
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 3%;
+}
+
+@media screen and (min-width: 240px) and (max-width: 1024px) {
+    .form {
+        width: 20em;
+    }
+
+    .row {
+        padding: 5%;
+    }
+}

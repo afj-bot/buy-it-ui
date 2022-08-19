@@ -1,0 +1,16 @@
+.registration-inputs-box {
+    margin-top: 5%;
+}
+
+.registration-row {
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 3%;
+}
+
+@media screen and (min-width: 240px) and (max-width: 1024px) {
+
+    .registration-row {
+        padding: 5%;
+    }
+}
