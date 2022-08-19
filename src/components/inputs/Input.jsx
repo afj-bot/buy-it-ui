@@ -1,23 +1,23 @@
-import React, { useState } from "react"
-import PropTypes from "prop-types"
-import TextField from "@mui/material/TextField"
-import IconButton from "@mui/material/IconButton"
-import VisibilityIcon from "@mui/icons-material/Visibility"
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff"
-import "./Input.css"
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import TextField from "@mui/material/TextField";
+import IconButton from "@mui/material/IconButton";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import "./Input.css";
 
 const Input = ({ id, placeholder, type, value, isPasswordField, error, changeFunction }) => {
-  const [isSecured, setSecured] = useState(isPasswordField)
-  const [stateType, setStateType] = useState(type)
+  const [isSecured, setSecured] = useState(isPasswordField);
+  const [stateType, setStateType] = useState(type);
 
   const handleSecurity = () => {
-    setSecured(!isSecured)
+    setSecured(!isSecured);
     if (stateType === "text") {
-      setStateType("password")
+      setStateType("password");
     } else {
-      setStateType("text")
+      setStateType("text");
     }
-  }
+  };
 
   const securityInput = () => ({
     endAdornment: (
@@ -30,7 +30,7 @@ const Input = ({ id, placeholder, type, value, isPasswordField, error, changeFun
         )}
       </IconButton>
     )
-  })
+  });
 
   return (
     <TextField
@@ -46,8 +46,8 @@ const Input = ({ id, placeholder, type, value, isPasswordField, error, changeFun
       }
       onChange={e => changeFunction(e.target.value)}
     />
-  )
-}
+  );
+};
 
 Input.propTypes = {
   id: PropTypes.string,
@@ -57,6 +57,6 @@ Input.propTypes = {
   isPasswordField: PropTypes.bool,
   error: PropTypes.bool,
   changeFunction: PropTypes.func.isRequired
-}
+};
 
-export default Input
+export default Input;

@@ -1,10 +1,7 @@
-import React from "react"
+import React from "react";
 
 function ForgotPassoword () {
-  return (
-    <div data-testid="forgot-password-page" className="forgot-password">
-    </div>
-  )
+  return <div data-testid="forgot-password-page" className="page"></div>;
 }
 
-export default ForgotPassoword
+export default ForgotPassoword;

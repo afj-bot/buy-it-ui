@@ -1,0 +1,65 @@
+.footer {
+    width: 100vw;
+    min-height: 25vh;
+    height: 100%;
+    background: #0D7377;
+}
+
+.main-footer {
+    height: 23vh;
+}
+
+.company-legal-footer {
+    height: 2vh;
+    width: 100vw;
+}
+
+.company-legal-footer > span {
+    font-size: 10px;
+    height: 2vh;
+    float: right;
+}
+
+.footer-item {
+    width: 100vw;
+}
+
+.footer-item-mobile {
+    width: 49vw;
+}
+
+.payment-item {
+    margin-left: 15%;
+    padding: 1%;
+    height: 50%;
+}
+
+.categories {
+    width: 65%;
+    height: 11vh;
+}
+
+@media screen and (min-width: 240px) and (max-width: 767px) {
+    
+    .footer {
+        min-height: 55vh;
+        height: 100%;
+    }
+
+    .company-legal-footer {
+        height: 5vh;
+    }
+
+    .company-legal-footer > span {
+        height: 5vh;
+    }
+
+    .main-footer {
+        min-height: 50vh;
+        height: 93%;
+    }
+
+    .payment-item {
+        padding: 5%;
+    }
+}

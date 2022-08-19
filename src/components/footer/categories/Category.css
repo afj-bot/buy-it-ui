@@ -1,0 +1,27 @@
+.category-item-footer {
+    height: 100%;
+    display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+    
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    float: center;
+    width: 10%;
+}
+
+.button-footer {
+    font-size: 20px;
+    text-decoration: none;
+    text-transform: none;
+    color: aliceblue;
+}
+
+@media screen and (min-width: 240px) and (max-width: 767px) {
+    .category-item-footer {
+        width: 50%;
+    }
+}

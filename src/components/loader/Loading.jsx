@@ -1,18 +1,18 @@
-import React from "react"
-import PropTypes from "prop-types"
-import Grid from "@mui/material/Grid"
-import CircularProgress from "@mui/material/CircularProgress"
-import Dialog from "@mui/material/Dialog"
-import DialogContent from "@mui/material/DialogContent"
-import DialogTitle from "@mui/material/DialogTitle"
-import "./Loader.css"
+import React from "react";
+import PropTypes from "prop-types";
+import Grid from "@mui/material/Grid";
+import CircularProgress from "@mui/material/CircularProgress";
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
+import "./Loader.css";
 
 const Loading = ({ open, text = "Wait ..." }) => {
-  const [isOpen, setIsOpen] = React.useState(open)
+  const [isOpen, setIsOpen] = React.useState(open);
 
   React.useEffect(() => {
-    setIsOpen(open)
-  }, [open])
+    setIsOpen(open);
+  }, [open]);
 
   return (
     <Dialog open={isOpen}>
@@ -31,12 +31,12 @@ const Loading = ({ open, text = "Wait ..." }) => {
         </Grid>
       </DialogContent>
     </Dialog>
-  )
-}
+  );
+};
 
 Loading.propTypes = {
   open: PropTypes.bool,
   text: PropTypes.string
-}
+};
 
-export default Loading
+export default Loading;

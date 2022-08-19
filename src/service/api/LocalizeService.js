@@ -1,5 +1,5 @@
 
-import apiInstance from "./axios"
+import apiInstance from "./axios";
 
 class LocalizeService {
   async localize (locale) {
@@ -7,8 +7,8 @@ class LocalizeService {
       headers: {
         "Accept-Language": locale
       }
-    })
+    });
   }
 }
 
-export default new LocalizeService()
+export default new LocalizeService();
