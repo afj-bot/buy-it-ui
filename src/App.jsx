@@ -7,13 +7,14 @@ import Footer from "./components/footer/Footer";
 import apiInstance from "./service/api/axios";
 import AuthService from "./service/api/AuthService";
 import "./App.css";
+import Loading from "./components/loader/Loading";
 
 const App = ({ children }) => {
-  const [isShowRegistrationAndLogin, setShowRegistrationAndLogin] =
-    useState(true);
+  const [isDisplayLogin, setDisplayLogin] = useState(true);
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function getAnonymous() {
+    async function getAnonymous () {
       if (localStorage.getItem(AUTH_TOKEN_ATTRIBUTE) === null) {
         const cookieResponse = await AuthService.getCookie();
         if (cookieResponse.status === OK) {
@@ -29,14 +30,14 @@ const App = ({ children }) => {
       const token = localStorage.getItem(AUTH_TOKEN_ATTRIBUTE);
       apiInstance.defaults.headers.Authorization = `Bearer ${token}`;
     }
-    setShowRegistrationAndLogin(
-      new Boolean().valueOf(localStorage.getItem(ANONYMOUS_ATTRIBUTE))
-    );
+    setDisplayLogin(localStorage.getItem(ANONYMOUS_ATTRIBUTE));
+    setLoading(false);
   }, []);
 
   return (
     <>
-      <Header displayLoginAndRegisration={isShowRegistrationAndLogin} />
+      <Loading open={isLoading} text="...." />
+      <Header isDisplayLogin={isDisplayLogin} />
       <Grid container className="content">
         {children}
       </Grid>

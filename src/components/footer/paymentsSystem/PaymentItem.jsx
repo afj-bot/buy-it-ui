@@ -17,7 +17,7 @@ const PaymentItem = ({ src }) => (
 );
 
 PaymentItem.propTypes = {
-  src: PropTypes.string.isRequired
+  src: PropTypes.string.isRequired,
 };
 
 export default PaymentItem;

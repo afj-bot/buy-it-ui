@@ -38,7 +38,7 @@ class Index extends React.Component {
   render () {
     return (
       <Router>
-        <Suspense fallback={<Loading open />}>
+        <Suspense fallback={<Loading open text="...."/>}>
           <Routes>
             <Route path={PUBLIC_ROUTES.DASHBOARD} element={<App />} />
             <Route path={PUBLIC_ROUTES.DELIVERY} element={<App />} />

@@ -4,7 +4,7 @@ import PaymentItem from "./PaymentItem";
 
 const payments = [
   "https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg",
-  "https://upload.wikimedia.org/wikipedia/commons/a/a4/Mastercard_2019_logo.svg"
+  "https://upload.wikimedia.org/wikipedia/commons/a/a4/Mastercard_2019_logo.svg",
 ];
 
 const Payments = () => (

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -18,7 +19,7 @@ import PermPhoneMsgIcon from "@mui/icons-material/PermPhoneMsg";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import LoginIcon from "@mui/icons-material/Login";
 
-const Header = ({ displayLoginAndRegisration }) => {
+const Header = ({ isDisplayLogin }) => {
   const { updateResource } = useContext(LocalizeContext);
   const [language, setLanguage] = useState(
     localStorage.getItem(LANGUAGE_ATTRIBUTE) !== null
@@ -27,7 +28,7 @@ const Header = ({ displayLoginAndRegisration }) => {
   );
 
   useEffect(() => {
-    async function getContent() {
+    async function getContent () {
       const response = await LocalizeService.localize(language);
       updateResource(response.data);
     }
@@ -80,8 +81,7 @@ const Header = ({ displayLoginAndRegisration }) => {
 
   const location = useLocation();
 
-  const isShowLogin =
-    !location.pathname.match("login") && displayLoginAndRegisration;
+  const isShowLogin = !location.pathname.match("login") && isDisplayLogin;
 
   return (
     <Grid className="header" container direction="row">
@@ -118,4 +118,7 @@ const Header = ({ displayLoginAndRegisration }) => {
   );
 };
 
+Header.propTypes = {
+  isDisplayLogin: PropTypes.bool,
+};
 export default Header;

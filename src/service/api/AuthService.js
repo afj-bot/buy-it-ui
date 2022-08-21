@@ -1,4 +1,3 @@
-
 import apiInstance from "./axios";
 
 const prefix = "/auth/anonymous";

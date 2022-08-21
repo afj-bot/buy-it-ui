@@ -85,7 +85,7 @@ MenuMobile.propTypes = {
   items: PropTypes.array.isRequired,
   login: PropTypes.object.isRequired,
   cartItems: PropTypes.array.isRequired,
-  isShowLogin: PropTypes.bool.isRequired
+  isShowLogin: PropTypes.bool.isRequired,
 };
 
 export default MenuMobile;

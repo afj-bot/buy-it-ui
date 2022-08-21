@@ -16,16 +16,16 @@ const Localization = ({ country, setCountry }) => {
   const countries = [
     {
       code: "UA",
-      label: "Ukrainian"
+      label: "Ukrainian",
     },
     {
       code: "GB",
-      label: "English"
+      label: "English",
     },
     {
       code: "HU",
-      label: "Hungarian"
-    }
+      label: "Hungarian",
+    },
   ];
 
   const handleToggle = () => {
@@ -86,7 +86,7 @@ const Localization = ({ country, setCountry }) => {
             {...TransitionProps}
             style={{
               transformOrigin:
-                placement === "bottom-start" ? "left top" : "left bottom"
+                placement === "bottom-start" ? "left top" : "left bottom",
             }}
           >
             <Paper>
@@ -127,7 +127,7 @@ const Localization = ({ country, setCountry }) => {
 
 Localization.propTypes = {
   country: PropTypes.string,
-  setCountry: PropTypes.func.isRequired
+  setCountry: PropTypes.func.isRequired,
 };
 
 export default Localization;

@@ -13,7 +13,7 @@ const resource = {
   "login.form.username.input": "Username",
   "login.form.button.tooltip": "Fill password/username to login",
   "login.form.password.input": "Password",
-  "login.form.forgot.password.tooltip": "Forgot your password?"
+  "login.form.forgot.password.tooltip": "Forgot your password?",
 };
 
 const mock = (key) => {
@@ -22,7 +22,7 @@ const mock = (key) => {
 
 const contextValue = {
   resource,
-  getKeyValue: mock
+  getKeyValue: mock,
 };
 
 let container = null;

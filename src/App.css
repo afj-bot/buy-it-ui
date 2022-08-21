@@ -43,6 +43,11 @@
     font-size: 14px;
 }
 
+.black {
+    color: #000000; 
+}
+
 .uppercase {
     text-transform: uppercase;
 }
+

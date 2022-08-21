@@ -1,13 +1,11 @@
 import React, { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Input from "../../inputs/Input";
-import Loading from "../../loader/Loading";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import LoginIcon from "@mui/icons-material/Login";
 import LoginService from "../../../service/api/LoginService";
-import Title from "../title/Title";
 import {
   ANONYMOUS_ATTRIBUTE,
   AUTH_ROUTES,
@@ -19,6 +17,7 @@ import { LocalizeContext } from "../../../service/providers/LocalizeProvider";
 
 import "./LoginForm.css";
 import { Divider } from "@mui/material";
+import Form from "../form/Form";
 
 const LoginForm = () => {
   const { getKeyValue } = useContext(LocalizeContext);
@@ -116,6 +115,7 @@ const LoginForm = () => {
           value={username}
           error={isError}
           changeFunction={handleUsername}
+          fullWidth
         />
       ),
     },
@@ -129,6 +129,7 @@ const LoginForm = () => {
           isPasswordField={true}
           error={isError}
           changeFunction={handlePassword}
+          fullWidth
         />
       ),
     },
@@ -138,19 +139,12 @@ const LoginForm = () => {
   ];
 
   return (
-    <Grid container direction="column" className="form">
-      <Loading open={isLoading} />
-      <Title text={getKeyValue("login.form.title")} icon={LoginIcon} />
-      <Grid item>
-        <Grid container direction="column" className="inputs-box">
-          {elementsMap.map((ele, index) => (
-            <Grid key={index} item className="row">
-              {ele.row}
-            </Grid>
-          ))}
-        </Grid>
-      </Grid>
-    </Grid>
+    <Form
+      title={getKeyValue("login.form.title")}
+      titleIcon={LoginIcon}
+      elementsMap={elementsMap}
+      isLoading={isLoading}
+    />
   );
 };
 

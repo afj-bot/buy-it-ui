@@ -23,7 +23,7 @@ const Category = ({ category }) => {
 };
 
 Category.propTypes = {
-  category: PropTypes.object.isRequired
+  category: PropTypes.object.isRequired,
 };
 
 export default Category;

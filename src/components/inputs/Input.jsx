@@ -15,6 +15,8 @@ const Input = ({
   fullWidth,
   error,
   changeFunction,
+  className = "",
+  helperText,
 }) => {
   const [isSecured, setSecured] = useState(isPasswordField);
   const [stateType, setStateType] = useState(type);
@@ -43,14 +45,16 @@ const Input = ({
 
   return (
     <TextField
-      className="input"
+      className={`input ${className}`}
       id={id}
+      autoComplete="true"
       data-testid={id}
       placeholder={placeholder}
       type={stateType}
       fullWidth={fullWidth}
       value={value}
       error={error}
+      helperText={helperText && error ? helperText : ""}
       InputProps={isPasswordField && securityInput()}
       onChange={(e) => changeFunction(e.target.value)}
     />
@@ -65,7 +69,9 @@ Input.propTypes = {
   isPasswordField: PropTypes.bool,
   fullWidth: PropTypes.bool,
   error: PropTypes.bool,
+  helperText: PropTypes.string,
   changeFunction: PropTypes.func.isRequired,
+  className: PropTypes.string,
 };
 
 export default Input;
