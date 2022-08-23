@@ -84,7 +84,7 @@ module.exports = {
   // An array of directory names to be searched recursively up from the requiring module's location
   moduleDirectories: [
     "node_modules",
-    "__jest__"
+    "__jest__",
   ],
 
   // An array of file extensions your modules use
@@ -123,7 +123,7 @@ module.exports = {
   // projects: undefined,
 
   // Use this configuration option to add custom reporters to Jest
-//   reporters: ["default", "jest-allure"],
+  //   reporters: ["default", "jest-allure"],
 
   // Automatically reset mock state before every test
   // resetMocks: false,
@@ -152,7 +152,7 @@ module.exports = {
   // setupFiles: [],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  setupFilesAfterEnv: ["jest-allure/dist/setup"],
+  // setupFilesAfterEnv: ["jest-allure/dist/setup"],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
   // slowTestThreshold: 5,
@@ -187,7 +187,7 @@ module.exports = {
   // testResultsProcessor: undefined,
 
   // This option allows use of a custom test runner
-  "testRunner": "jest-jasmine2",
+  // testRunner: "jest-jasmine2",
 
   // A map from regular expressions to paths to transformers
   // transform: undefined,
