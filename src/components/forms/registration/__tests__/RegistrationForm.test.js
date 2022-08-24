@@ -5,26 +5,7 @@ import "@testing-library/jest-dom";
 import { BrowserRouter } from "react-router-dom";
 import { LocalizeContext } from "../../../../service/providers/LocalizeProvider";
 import axios from "../../../../service/api/axios";
-
-const resource =
-{
-  "registration.form.title": "Registration",
-  "registration.form.or.text": "or",
-  "registration.form.login.button": "Login",
-  "error.password.confirm": "Password and confirm password should be the same",
-  "registration.form.password.input": "Your password",
-  "registration.form.confirm-password.input": "Confirm your password",
-  "registration.form.privacy.link": "privacy policy",
-  "registration.form.privacy.text": "I accept",
-  "error.email.field": "Email should match pattern '*@domain.com'",
-  "error.password.weak": "Password should have a capital letter and one number",
-  "error.required.field": "This field is required",
-  "registration.form.username.input": "Your username",
-  "registration.form.button.tooltip": "Fill all field to registered",
-  "error.password.less": "Password should be more than 8 symbols",
-  "registration.form.button": "Register",
-  "registration.form.email.input": "Your email",
-};
+import resource from "../../../../__jest__/localize.json";
 
 const mock = (key) => {
   return resource ? resource[`${key}`] : "";
