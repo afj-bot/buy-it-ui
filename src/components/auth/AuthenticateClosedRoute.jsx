@@ -14,7 +14,7 @@ const AuthenticateClosedRoute = ({ children }) => {
 };
 
 AuthenticateClosedRoute.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 export default AuthenticateClosedRoute;

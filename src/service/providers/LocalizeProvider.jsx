@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 export const LocalizeContext = React.createContext({
   resource: {},
   updateResource: () => {},
-  getKeyValue: () => {}
+  getKeyValue: () => {},
 });
 
 export default function LocalizeProvider ({ children }) {
@@ -22,7 +22,7 @@ export default function LocalizeProvider ({ children }) {
   const contextValue = {
     resource,
     updateResource: React.useCallback((resource) => updateResource(resource), []),
-    getKeyValue: React.useCallback((key) => getKeyValue(key), [getKeyValue])
+    getKeyValue: React.useCallback((key) => getKeyValue(key), [getKeyValue]),
   };
 
   return (
@@ -31,5 +31,5 @@ export default function LocalizeProvider ({ children }) {
 }
 
 LocalizeProvider.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };

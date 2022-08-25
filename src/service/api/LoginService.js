@@ -7,7 +7,7 @@ class LoginService {
   async login (username, password) {
     return await apiInstance.post(prefix, {
       username,
-      password
+      password,
     });
   }
 }

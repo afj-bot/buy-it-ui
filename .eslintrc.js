@@ -1,11 +1,11 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
   },
   extends: [
     "plugin:react/recommended",
-    "standard"
+    "standard",
   ],
   globals: {
     eslint: true,
@@ -20,26 +20,34 @@ module.exports = {
     beforeEach: true,
     beforeAll: true,
     module: true,
-    __dirname: true
+    __dirname: true,
   },
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     ecmaVersion: "latest",
-    sourceType: "module"
+    sourceType: "module",
   },
   plugins: [
-    "react"
+    "react",
   ],
   rules: {
     "no-magic-numbers": ["error", { ignore: [0, 1, 2, 3, 4, 5] }],
     quotes: ["error", "double"],
-    semi: ["error", "always"]
+    semi: ["error", "always"],
+    "space-before-function-paren": ["error", "always"],
+    "comma-dangle": ["error", {
+      arrays: "always-multiline",
+      objects: "always-multiline",
+      imports: "always-multiline",
+      exports: "never",
+      functions: "never",
+    }],
   },
   settings: {
     react: {
-      version: "detect"
-    }
-  }
+      version: "detect",
+    },
+  },
 };

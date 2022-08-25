@@ -1,0 +1,77 @@
+.form {
+    width: 30em;
+    height: 400px;
+    border: 2px black;
+    border-radius: 10%;
+    background-color: aliceblue;
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 12px 13px 7px 5px rgba(0, 0, 0, 0.14);
+    box-shadow: 0px 10px 13px -7px #000000, 12px 13px 7px 5px rgba(0, 0, 0, 0.14);
+    transition: height 0.25s ease-in;
+}
+
+.inputs-box {
+    margin-top: 3%;
+}
+
+.row {
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 2%;
+}
+
+.legacy {
+    text-align: left;
+    word-break: break-all; 
+}
+
+.registration {
+    height: 80%;
+}
+
+.registration-medium {
+    height: 92%;
+}
+
+.registration-large {
+    height: 94%;
+}
+
+@media screen and (min-width: 240px) and (max-width: 767px) {
+    .registration {
+        height: 70%;
+    }
+
+    .registration-medium {
+        height: 82%;
+    }
+
+    .registration-large {
+        height: 90%;
+    }
+
+    .form {
+        width: 20em;
+    }
+
+    .row {
+        padding: 3%;
+    }
+
+    .inputs-box {
+        margin-top: 5%;
+    }
+}
+
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait) {
+    .registration {
+        height: 60%;
+    }
+
+    .registration-medium {
+        height: 63%;
+    }
+
+    .registration-large {
+        height: 65%;
+    }
+  }

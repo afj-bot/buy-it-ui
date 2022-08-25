@@ -18,3 +18,10 @@ export const LANGUAGE_ATTRIBUTE = "language";
 
 export const OK = 200;
 export const SERVER_ERROR = 504;
+
+export const WEAK_PASSWORD_REGEX =
+  /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,32}$/g;
+export const STRONG_PASSWORD_REGEX =
+  /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!()]).{8,32}$/g;
+export const PASSWORD_LENGTH = 8;
+export const EMAIL_REGEX = /.*(@)(?![.])(.*).(com.*|ua.*|hu.*|us.*|uk.*)/g;

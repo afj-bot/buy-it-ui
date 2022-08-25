@@ -1,10 +1,14 @@
-
 .input:focus {
     background-color: "rgba(240, 251, 255, 0.3)";
     border-color: "#000000";
+    transition: all 0.5s ease-in;
 }
 
 .input .MuiOutlinedInput-root fieldset {
       border-color: "#000000";
       border-radius: "5px";
+}
+
+[id*='hepler-text'] {
+    transition: all 0.5s ease-in-out;
 }

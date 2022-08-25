@@ -6,7 +6,18 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import "./Input.css";
 
-const Input = ({ id, placeholder, type, value, isPasswordField, error, changeFunction }) => {
+const Input = ({
+  id,
+  placeholder,
+  type,
+  value,
+  isPasswordField,
+  fullWidth,
+  error,
+  changeFunction,
+  className = "",
+  helperText,
+}) => {
   const [isSecured, setSecured] = useState(isPasswordField);
   const [stateType, setStateType] = useState(type);
 
@@ -29,22 +40,23 @@ const Input = ({ id, placeholder, type, value, isPasswordField, error, changeFun
           <VisibilityOffIcon fontSize="small" data-test-id="security-off" />
         )}
       </IconButton>
-    )
+    ),
   });
 
   return (
     <TextField
-      className="input"
+      className={`input ${className}`}
       id={id}
+      autoComplete="true"
       data-testid={id}
       placeholder={placeholder}
       type={stateType}
-      fullWidth
+      fullWidth={fullWidth}
       value={value}
       error={error}
-      InputProps={isPasswordField && securityInput()
-      }
-      onChange={e => changeFunction(e.target.value)}
+      helperText={helperText && error ? helperText : ""}
+      InputProps={isPasswordField && securityInput()}
+      onChange={(e) => changeFunction(e.target.value)}
     />
   );
 };
@@ -55,8 +67,11 @@ Input.propTypes = {
   type: PropTypes.string.isRequired,
   value: PropTypes.string,
   isPasswordField: PropTypes.bool,
+  fullWidth: PropTypes.bool,
   error: PropTypes.bool,
-  changeFunction: PropTypes.func.isRequired
+  helperText: PropTypes.string,
+  changeFunction: PropTypes.func.isRequired,
+  className: PropTypes.string,
 };
 
 export default Input;

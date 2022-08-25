@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -18,7 +19,7 @@ import PermPhoneMsgIcon from "@mui/icons-material/PermPhoneMsg";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import LoginIcon from "@mui/icons-material/Login";
 
-const Header = () => {
+const Header = ({ isDisplayLogin }) => {
   const { updateResource } = useContext(LocalizeContext);
   const [language, setLanguage] = useState(
     localStorage.getItem(LANGUAGE_ATTRIBUTE) !== null
@@ -45,42 +46,42 @@ const Header = () => {
     {
       value: "header.product.button",
       link: PUBLIC_ROUTES.PRODUCTS,
-      icon: <StoreIcon />
+      icon: <StoreIcon />,
     },
     {
       value: "header.delivery.button",
       link: PUBLIC_ROUTES.DELIVERY,
-      icon: <LocalShippingIcon />
+      icon: <LocalShippingIcon />,
     },
     {
       value: "header.contact-us.button",
       link: PUBLIC_ROUTES.CONTACT_US,
-      icon: <PermPhoneMsgIcon />
-    }
+      icon: <PermPhoneMsgIcon />,
+    },
   ];
 
   const login = {
     value: "header.login.button",
     link: PUBLIC_ROUTES.LOGIN,
-    icon: LoginIcon
+    icon: LoginIcon,
   };
 
   const cartItems = [
     {
       value: "header.cart.button",
       link: "/my/cart",
-      icon: ShoppingCartIcon
+      icon: ShoppingCartIcon,
     },
     {
       value: "header.search.button",
       link: "/search",
-      icon: SearchIcon
-    }
+      icon: SearchIcon,
+    },
   ];
 
   const location = useLocation();
 
-  const isShowLogin = !location.pathname.match("login");
+  const isShowLogin = !location.pathname.match("login") && isDisplayLogin;
 
   return (
     <Grid className="header" container direction="row">
@@ -117,4 +118,7 @@ const Header = () => {
   );
 };
 
+Header.propTypes = {
+  isDisplayLogin: PropTypes.bool,
+};
 export default Header;

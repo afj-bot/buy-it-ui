@@ -8,7 +8,8 @@ export const PUBLIC_ROUTES = {
   PRODUCTS: "/products",
   DELIVERY: "/delivery",
   CONTACT_US: "/contact-us",
-  FORGOT_PASSWORD: "/forgot-password"
+  FORGOT_PASSWORD: "/forgot-password",
+  REGISTRATION: "/registration",
 };
 
 /**
@@ -16,12 +17,12 @@ export const PUBLIC_ROUTES = {
 */
 export const AUTH_ROUTES = {
   LOGOUT: "/logout",
-  MY_PROFILE: "/profile"
+  MY_PROFILE: "/profile",
 };
 
 /**
 * Admin routes that need to have admin permission to access
 */
 export const ADMIN_ROUTES = {
-  ADMIN: "/admin"
+  ADMIN: "/admin",
 };

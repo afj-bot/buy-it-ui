@@ -21,7 +21,7 @@ const Logo = () => {
 
 Logo.propTypes = {
   isHeader: PropTypes.bool,
-  dataTestId: PropTypes.string
+  dataTestId: PropTypes.string,
 };
 
 export default Logo;

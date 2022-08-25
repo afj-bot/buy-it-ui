@@ -18,6 +18,36 @@
     width: 100vw;
 }
 
+.center {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex;
+    /* NEW, Spec - Firefox, Chrome, Opera */
+
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .button {
     color: #0D7377;
 }
+
+.text {
+    color: #0D7377;
+    font-size: 14px;
+}
+
+.black {
+    color: #000000; 
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+

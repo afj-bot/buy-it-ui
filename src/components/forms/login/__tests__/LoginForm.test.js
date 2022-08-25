@@ -3,18 +3,9 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import LoginForm from "../LoginForm";
 import "@testing-library/jest-dom";
 import { BrowserRouter } from "react-router-dom";
-import { LocalizeContext } from "../../../service/providers/LocalizeProvider";
-import axios from "../../../service/api/axios";
-
-const resource = {
-  "login.form.title": "Log In",
-  "login.form.forgot.password.button": "Forgot password",
-  "login.form.button": "Log In",
-  "login.form.username.input": "Username",
-  "login.form.button.tooltip": "Fill password/username to login",
-  "login.form.password.input": "Password",
-  "login.form.forgot.password.tooltip": "Forgot your password?"
-};
+import { LocalizeContext } from "../../../../service/providers/LocalizeProvider";
+import axios from "../../../../service/api/axios";
+import resource from "../../../../__jest__/localize.json";
 
 const mock = (key) => {
   return resource ? resource[`${key}`] : "";
@@ -22,7 +13,7 @@ const mock = (key) => {
 
 const contextValue = {
   resource,
-  getKeyValue: mock
+  getKeyValue: mock,
 };
 
 let container = null;
