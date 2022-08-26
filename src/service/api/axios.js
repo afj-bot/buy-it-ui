@@ -6,7 +6,6 @@ const instance = axios.create({
   headers: {
     "Content-Type": "application/json",
     "Accept-Language": localStorage.getItem(LANGUAGE_ATTRIBUTE) !== null ? localStorage.getItem(LANGUAGE_ATTRIBUTE) : "en",
-    "Access-Control-Allow-Origin": "https://*.afj-solution.com",
   },
   withCredentials: true,
   timeout: 20000,
