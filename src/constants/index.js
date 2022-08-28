@@ -11,6 +11,10 @@ export const API_BASE_URL =
     REACT_APP_ENV === "TEST"
       ? `http://${REACT_APP_API_URL}/api/v1`
       : `https://${REACT_APP_API_URL}/api/v1`;
+export const ACCESS_CONTROL_HEADER =
+    REACT_APP_ENV === "TEST"
+      ? `http://${REACT_APP_API_URL}`
+      : `https://${REACT_APP_API_URL}`;
 
 export const AUTH_TOKEN_ATTRIBUTE = "token";
 export const ANONYMOUS_ATTRIBUTE = "anonymous";
