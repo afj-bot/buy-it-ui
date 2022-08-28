@@ -12,7 +12,6 @@ const instance = axios.create({
     "Content-Type": "application/json",
     "Accept-Language": localStorage.getItem(LANGUAGE_ATTRIBUTE) !== null ? localStorage.getItem(LANGUAGE_ATTRIBUTE) : "en",
   },
-  withCredentials: true,
   timeout: 20000,
   validateStatus: function (status) {
     return status >= OK && status < SERVER_ERROR;
