@@ -13,6 +13,7 @@ const instance = axios.create({
     "Accept-Language": localStorage.getItem(LANGUAGE_ATTRIBUTE) !== null ? localStorage.getItem(LANGUAGE_ATTRIBUTE) : "en",
   },
   timeout: 20000,
+  withCredentials: true,
   validateStatus: function (status) {
     return status >= OK && status < SERVER_ERROR;
   },
