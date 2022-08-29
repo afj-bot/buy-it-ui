@@ -4,7 +4,7 @@ import {
   LANGUAGE_ATTRIBUTE,
   OK,
   SERVER_ERROR,
-  ACCESS_CONTROL_HEADER
+  ACCESS_CONTROL_HEADER,
 } from "../../constants/";
 
 const instance = axios.create({
