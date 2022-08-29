@@ -4,6 +4,7 @@ import {
   LANGUAGE_ATTRIBUTE,
   OK,
   SERVER_ERROR,
+  ACCESS_CONTROL_HEADER
 } from "../../constants/";
 
 const instance = axios.create({
@@ -11,6 +12,7 @@ const instance = axios.create({
   headers: {
     "Content-Type": "application/json",
     "Accept-Language": localStorage.getItem(LANGUAGE_ATTRIBUTE) !== null ? localStorage.getItem(LANGUAGE_ATTRIBUTE) : "en",
+    "Access-Control-Allow-Origin": ACCESS_CONTROL_HEADER,
   },
   timeout: 20000,
   withCredentials: true,

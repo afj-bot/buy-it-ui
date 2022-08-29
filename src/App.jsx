@@ -14,7 +14,7 @@ const App = ({ children }) => {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function getAnonymous () {
+    async function getAnonymous() {
       if (localStorage.getItem(AUTH_TOKEN_ATTRIBUTE) === null) {
         const cookieResponse = await AuthService.getCookie();
         if (cookieResponse.status === OK) {
