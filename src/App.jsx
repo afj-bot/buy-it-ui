@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import useLocalStorage from "./service/useLocalStorage";
 import PropTypes from "prop-types";
 import Grid from "@mui/material/Grid";
 import { ANONYMOUS_ATTRIBUTE, AUTH_TOKEN_ATTRIBUTE, OK } from "./constants";
@@ -12,27 +13,31 @@ import Loading from "./components/loader/Loading";
 const App = ({ children }) => {
   const [isDisplayLogin, setDisplayLogin] = useState(true);
   const [isLoading, setLoading] = useState(true);
+  const [isAnonymous, setAnonymous] = useLocalStorage(
+    ANONYMOUS_ATTRIBUTE,
+    false
+  );
+  const [token, setToken] = useLocalStorage(AUTH_TOKEN_ATTRIBUTE, "");
 
   useEffect(() => {
-    async function getAnonymous() {
-      if (localStorage.getItem(AUTH_TOKEN_ATTRIBUTE) === null) {
+    async function getAnonymous () {
+      if (token === "") {
         const cookieResponse = await AuthService.getCookie();
         if (cookieResponse.status === OK) {
           const tokenResponse = await AuthService.authorize();
-          localStorage.setItem(AUTH_TOKEN_ATTRIBUTE, tokenResponse.data.token);
-          localStorage.setItem(ANONYMOUS_ATTRIBUTE, "true");
+          setToken(tokenResponse.data.token);
+          setAnonymous(true);
         }
       }
     }
 
     getAnonymous();
-    if (localStorage.getItem(AUTH_TOKEN_ATTRIBUTE) !== null) {
-      const token = localStorage.getItem(AUTH_TOKEN_ATTRIBUTE);
+    if (token) {
       apiInstance.defaults.headers.Authorization = `Bearer ${token}`;
     }
-    setDisplayLogin(localStorage.getItem(ANONYMOUS_ATTRIBUTE));
+    setDisplayLogin(isAnonymous);
     setLoading(false);
-  }, []);
+  }, [isAnonymous]);
 
   return (
     <>

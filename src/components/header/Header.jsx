@@ -1,31 +1,28 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SearchIcon from "@mui/icons-material/Search";
+import StoreIcon from "@mui/icons-material/Store";
+import PermPhoneMsgIcon from "@mui/icons-material/PermPhoneMsg";
+import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+import LoginIcon from "@mui/icons-material/Login";
 import Localization from "../dropdown/localization/Localization";
 import LocalizeService from "../../service/api/LocalizeService";
 import { LocalizeContext } from "../../service/providers/LocalizeProvider";
-import "./Header.css";
-
+import useLocalStorage from "../../service/useLocalStorage";
 import { LANGUAGE_ATTRIBUTE, PUBLIC_ROUTES } from "../../constants";
 import apiInstance from "../../service/api/axios";
 import Logo from "../logo/Logo";
 import MenuDesktop from "./menus/desktop/MenuDesktop";
 import MenuMobile from "./menus/mobile/MenuMobile";
-import StoreIcon from "@mui/icons-material/Store";
-import PermPhoneMsgIcon from "@mui/icons-material/PermPhoneMsg";
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
-import LoginIcon from "@mui/icons-material/Login";
+
+import "./Header.css";
 
 const Header = ({ isDisplayLogin }) => {
   const { updateResource } = useContext(LocalizeContext);
-  const [language, setLanguage] = useState(
-    localStorage.getItem(LANGUAGE_ATTRIBUTE) !== null
-      ? localStorage.getItem(LANGUAGE_ATTRIBUTE)
-      : "gb"
-  );
+  const [language, setLanguage] = useLocalStorage(LANGUAGE_ATTRIBUTE, "gb");
 
   useEffect(() => {
     async function getContent () {
@@ -37,7 +34,6 @@ const Header = ({ isDisplayLogin }) => {
   }, [language]);
 
   const handleLanguage = (country) => {
-    localStorage.setItem(LANGUAGE_ATTRIBUTE, country);
     setLanguage(country);
     apiInstance.defaults.headers["Accept-Language"] = country;
   };
