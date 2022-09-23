@@ -5,10 +5,11 @@ import Grid from "@mui/material/Grid";
 import { ANONYMOUS_ATTRIBUTE, AUTH_TOKEN_ATTRIBUTE, OK } from "./constants";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
+import Loading from "./components/loader/Loading";
+import CustomAlert from "./components/alert/Alert";
 import apiInstance from "./service/api/axios";
 import AuthService from "./service/api/AuthService";
 import "./App.css";
-import Loading from "./components/loader/Loading";
 
 const App = ({ children }) => {
   const [isDisplayLogin, setDisplayLogin] = useState(true);
@@ -20,7 +21,7 @@ const App = ({ children }) => {
   const [token, setToken] = useLocalStorage(AUTH_TOKEN_ATTRIBUTE, "");
 
   useEffect(() => {
-    async function getAnonymous () {
+    async function getAnonymous() {
       if (token === "") {
         const cookieResponse = await AuthService.getCookie();
         if (cookieResponse.status === OK) {
@@ -47,6 +48,7 @@ const App = ({ children }) => {
         {children}
       </Grid>
       <Footer />
+      <CustomAlert />
     </>
   );
 };
