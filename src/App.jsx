@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
-import useLocalStorage from "./service/useLocalStorage";
+import React, { useContext, useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import useLocalStorage from "./service/utils/useLocalStorage";
 import PropTypes from "prop-types";
 import Grid from "@mui/material/Grid";
 import { ANONYMOUS_ATTRIBUTE, AUTH_TOKEN_ATTRIBUTE, OK } from "./constants";
@@ -10,8 +11,10 @@ import CustomAlert from "./components/alert/Alert";
 import apiInstance from "./service/api/axios";
 import AuthService from "./service/api/AuthService";
 import "./App.css";
+import { AlertContext } from "./service/providers/AlertProvider";
 
 const App = ({ children }) => {
+  const { showAlert } = useContext(AlertContext);
   const [isDisplayLogin, setDisplayLogin] = useState(true);
   const [isLoading, setLoading] = useState(true);
   const [isAnonymous, setAnonymous] = useLocalStorage(
@@ -19,9 +22,10 @@ const App = ({ children }) => {
     false
   );
   const [token, setToken] = useLocalStorage(AUTH_TOKEN_ATTRIBUTE, "");
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    async function getAnonymous() {
+    const getAnonymous = async () => {
       if (token === "") {
         const cookieResponse = await AuthService.getCookie();
         if (cookieResponse.status === OK) {
@@ -30,15 +34,29 @@ const App = ({ children }) => {
           setAnonymous(true);
         }
       }
-    }
+    };
 
     getAnonymous();
+    handleQueryParams("success");
+    handleQueryParams("error");
+    handleQueryParams("info");
+    handleQueryParams("warning");
+
     if (token) {
       apiInstance.defaults.headers.Authorization = `Bearer ${token}`;
     }
     setDisplayLogin(isAnonymous);
     setLoading(false);
-  }, [isAnonymous]);
+  }, [isAnonymous, searchParams]);
+
+  const handleQueryParams = (param) => {
+    if (searchParams.has(param)) {
+      const value = searchParams.get(param);
+      searchParams.delete(param);
+      setSearchParams(searchParams);
+      showAlert(value, param);
+    }
+  };
 
   return (
     <>

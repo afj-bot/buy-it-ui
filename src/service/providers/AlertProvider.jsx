@@ -13,7 +13,7 @@ export const AlertContext = React.createContext({
   closeAlert: () => {},
 });
 
-export default function AlertProvider({ children }) {
+const AlertProvider = ({ children }) => {
   const [message, setMessage] = React.useState("");
   const [open, setOpen] = React.useState(false);
   const [severity, setSeverity] = React.useState("");
@@ -24,7 +24,11 @@ export default function AlertProvider({ children }) {
     setOpen(false);
   };
 
-  const showAlert = (message, severity = "error", duration) => {
+  const showAlert = (
+    message,
+    severity = "error",
+    duration = CUSTOM_DURATION_MILLS
+  ) => {
     setOpen(true);
     setMessage(message);
     setSeverity(severity);
@@ -39,7 +43,7 @@ export default function AlertProvider({ children }) {
       duration,
     },
     showAlert: React.useCallback(
-      (message, severity) => showAlert(message, severity),
+      (message, severity) => showAlert(message, severity, duration),
       []
     ),
     closeAlert: React.useCallback(() => closeAlert(), []),
@@ -50,8 +54,10 @@ export default function AlertProvider({ children }) {
       {children}
     </AlertContext.Provider>
   );
-}
+};
 
 AlertProvider.propTypes = {
   children: PropTypes.node,
 };
+
+export default AlertProvider;

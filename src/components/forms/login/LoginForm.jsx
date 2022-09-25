@@ -18,9 +18,11 @@ import { LocalizeContext } from "../../../service/providers/LocalizeProvider";
 import "./LoginForm.css";
 import { Divider } from "@mui/material";
 import Form from "../form/Form";
+import { AlertContext } from "../../../service/providers/AlertProvider";
 
 const LoginForm = () => {
   const { getKeyValue } = useContext(LocalizeContext);
+  const { showAlert } = useContext(AlertContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isError, setError] = useState(false);
@@ -38,6 +40,7 @@ const LoginForm = () => {
     } else {
       setLoading(false);
       setError(true);
+      showAlert(response.data.error[0].message);
     }
   };
 

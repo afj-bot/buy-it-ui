@@ -83,7 +83,6 @@ const RegistrationForm = () => {
       navigate(PUBLIC_ROUTES.LOGIN);
     } else {
       setLoading(false);
-      console.log(response);
       showAlert(response.data.error[0].message);
     }
   };

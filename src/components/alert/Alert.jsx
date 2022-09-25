@@ -6,6 +6,7 @@ import "./Alert.css";
 
 const CustomAlert = () => {
   const { alert, closeAlert } = React.useContext(AlertContext);
+
   return (
     <Snackbar
       open={alert.open}
@@ -16,10 +17,10 @@ const CustomAlert = () => {
       <Alert
         data-testid={`alert-${alert.severity}`}
         variant="filled"
-        severity={"error"}
+        severity={alert.severity}
         onClose={closeAlert}
       >
-        {"Something went wrong"}
+        {alert.message}
       </Alert>
     </Snackbar>
   );
