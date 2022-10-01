@@ -19,9 +19,11 @@ import {
 } from "../../../constants";
 
 import Form from "../form/Form";
+import { AlertContext } from "../../../service/providers/AlertProvider";
 
 const RegistrationForm = () => {
   const navigate = useNavigate();
+  const { showAlert } = useContext(AlertContext);
   const { getKeyValue } = useContext(LocalizeContext);
   const [username, setUsername] = useState("");
   const [usernameError, setUsernameError] = useState(false);
@@ -81,6 +83,7 @@ const RegistrationForm = () => {
       navigate(PUBLIC_ROUTES.LOGIN);
     } else {
       setLoading(false);
+      showAlert(response.data.error[0].message);
     }
   };
 

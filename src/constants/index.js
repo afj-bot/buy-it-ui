@@ -19,6 +19,8 @@ export const LANGUAGE_ATTRIBUTE = "language";
 export const OK = 200;
 export const SERVER_ERROR = 504;
 
+export const CUSTOM_DURATION_MILLS = 15_000;
+
 export const WEAK_PASSWORD_REGEX =
   /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,32}$/g;
 export const STRONG_PASSWORD_REGEX =
