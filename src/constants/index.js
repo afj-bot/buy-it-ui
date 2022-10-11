@@ -25,3 +25,6 @@ export const STRONG_PASSWORD_REGEX =
   /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!()]).{8,32}$/g;
 export const PASSWORD_LENGTH = 8;
 export const EMAIL_REGEX = /.*(@)(?![.])(.*).(com.*|ua.*|hu.*|us.*|uk.*)/g;
+
+export const DEFAULT_PAGE_SIZE = 10;
+export const DEFAULT_PAGE = 0;

@@ -15,7 +15,7 @@ const Login = React.lazy(() => import("./pages/login/Login"));
 const Registration = React.lazy(() => import("./pages/registration/Registration"));
 const ForgotPassoword = React.lazy(() => import("./pages/forgotPassword/ForgotPassoword"));
 
-const Product = React.lazy(() => import("./pages/product/Product"));
+const Products = React.lazy(() => import("./pages/product/Products"));
 const MyProfile = React.lazy(() => import("./pages/profile/MyProfile"));
 
 class Index extends React.Component {
@@ -44,7 +44,7 @@ class Index extends React.Component {
             <Route path={PUBLIC_ROUTES.DELIVERY} element={<App />} />
             <Route path={PUBLIC_ROUTES.CONTACT_US} element={<App />} />
 
-            <Route path={PUBLIC_ROUTES.PRODUCTS} element={this.renderAuthenticateRoute(Product)} />
+            <Route path={PUBLIC_ROUTES.PRODUCTS} element={this.renderAuthenticateRoute(Products)} />
             <Route path={AUTH_ROUTES.MY_PROFILE} element={this.renderAuthenticateRoute(MyProfile)} />
 
             <Route path={PUBLIC_ROUTES.LOGIN} element={this.renderAuthenticateClosedRoute(Login)} />

@@ -1,0 +1,13 @@
+#product-item {
+    width: 20%;
+    min-height: 50vh;
+    border: 1px grey solid;
+}
+
+#product-item div {
+    width: 100%;
+}
+
+#product-item img {
+    height: 20vh;
+}
