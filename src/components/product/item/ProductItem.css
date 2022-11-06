@@ -1,7 +1,11 @@
 #product-item {
-    width: 20%;
-    min-height: 50vh;
-    border: 1px grey solid;
+    min-width: 16%;
+    max-width: 18%;
+    min-height: 30vh;
+    max-height: 40vh;
+    background-color: rgb(240, 243, 245);
+    border-radius: 5px;
+    margin: 1%;
 }
 
 #product-item div {
@@ -10,4 +14,15 @@
 
 #product-item img {
     height: 20vh;
+}
+
+#product-item h3 {
+    font-family: "Raleway-Bold";
+}
+
+#product-item div#description {
+    overflow-wrap: anywhere;
+    min-height: 80px;
+    max-height: 100px;
+    font-family: "Ubuntu";
 }

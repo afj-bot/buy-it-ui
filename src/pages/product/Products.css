@@ -1,0 +1,10 @@
+.products-table-root {
+    width: 80%;
+    min-height: 85vh;
+    max-height: 200vh;
+}
+
+.products-table {
+    min-height: 90vh;
+    border-radius: 5px;
+}

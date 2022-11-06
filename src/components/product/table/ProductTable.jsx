@@ -13,12 +13,11 @@ const ProductTable = () => {
 
   useEffect(() => {
     const getProducts = async () => {
-      const response = await ProductService.getProducts();
-      if ((response.status = OK && response.data.content)) {
+      const response = await ProductService.getProducts(20);
+      if ((response.status === OK && response.data.content)) {
         setProducts(response.data.content);
         setLoading(false);
       }
-      setLoading(false);
     };
 
     getProducts();
@@ -26,14 +25,14 @@ const ProductTable = () => {
 
   return (
     <>
-      <Loading open={isLoading} text={getKeyValue("products.loader")} />
+      <Loading open={isLoading} text={getKeyValue("product.loader")} />
       {!isLoading && (
         <Grid
           container
           direction="row"
           alignItems="flex-end"
           alignContent="flex-end"
-          className="products-table-root"
+          className="products-table"
         >
           {products.map((product) => (
             <ProductItem key={product.id} product={product} />

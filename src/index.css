@@ -8,6 +8,31 @@
   src: local('Lithium') url(./assets/fonts/Lithium.otf) format('opentype');
 }
 
+@font-face {
+  font-family: 'Ubuntu';
+  src: local('Ubuntu') url(./assets/fonts/Ubuntu-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Raleway-Bold';
+  src: local('Raleway-Bold') url(./assets/fonts/Raleway-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Raleway-Light';
+  src: local('Raleway-Light') url(./assets/fonts/Raleway-Light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Raleway-Medium';
+  src: local('Raleway-Medium') url(./assets/fonts/Raleway-Medium.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Raleway-Thin';
+  src: local('Raleway-Thin') url(./assets/fonts/Raleway-Thin.ttf) format('truetype');
+}
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;

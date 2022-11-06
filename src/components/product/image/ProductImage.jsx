@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import "./ProductImage.css";
 
 const ProductImage = ({ src }) => {
   const [image, setImage] = useState("");
@@ -16,10 +17,10 @@ const ProductImage = ({ src }) => {
 
   return (
     <img
+      id="product-image"
       alt=""
       src={image}
       loading="lazy"
-      style={{ width: "200px", height: "200px" }}
     />
   );
 };
