@@ -4,7 +4,7 @@ import apiInstance from "./axios";
 const prefix = "/products";
 
 class ProductService {
-  async getProducts (size = DEFAULT_PAGE_SIZE, page = DEFAULT_PAGE, sort) {
+  async getProducts (page = DEFAULT_PAGE, size = DEFAULT_PAGE_SIZE, sort) {
     return await apiInstance.get(`${prefix}`,
       {
         params: {

@@ -38,6 +38,10 @@
     color: #0D7377;
 }
 
+.main { 
+    color: #0D7377;
+}
+
 .text {
     color: #0D7377;
     font-size: 14px;
@@ -51,3 +55,13 @@
     text-transform: uppercase;
 }
 
+@media screen and (max-width: 390px) and (max-width: 1200px) {
+    .page {
+        min-height: 240vh;
+    }
+
+    .content {
+        min-height: 240vh;
+        max-height: 360vh;
+    }
+}

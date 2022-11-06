@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import Filter from "../../components/filter/Filter";
 import ProductTable from "../../components/product/table/ProductTable";
-import "./Products.css"
+import "./Products.css";
 
 const Products = () => {
   useEffect(() => {

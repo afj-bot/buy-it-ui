@@ -9,7 +9,7 @@ import ProductImage from "../image/ProductImage";
 import "./ProductItem.css";
 
 const ProductItem = (props) => {
-  const { id, name, price, currency, description } = props.product;
+  const { id, name, price, description } = props.product;
   const [image, setImage] = useState(undefined);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const ProductItem = (props) => {
     };
 
     getImage();
-  }, [] );
+  }, []);
 
   return (
     <Grid
@@ -33,21 +33,18 @@ const ProductItem = (props) => {
       id="product-item"
     >
       <Grid item>
-        <h3>
-          {name}
-        </h3>
-        </Grid>
+        <h3>{name}</h3>
+      </Grid>
       <Grid item>
         {!image && <CircularProgress />}
         {image && <ProductImage src={image} />}
       </Grid>
 
-      <Grid item>{price}</Grid>
-      <Grid item>{currency}</Grid>
       <Grid item>
-        <div id="description">
-          {description}
-        </div>
+        <span id="price">{price}</span>
+      </Grid>
+      <Grid item>
+        <div id="description">{description}</div>
       </Grid>
     </Grid>
   );
