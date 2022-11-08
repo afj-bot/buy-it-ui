@@ -7,7 +7,6 @@
     border-radius: 5px;
     margin: 1%;
 }
-
 #product-item div {
     width: 100%;
 }
@@ -17,18 +16,59 @@
 }
 
 #product-item h3 {
-    font-family: "Raleway-Bold";
+    font-family: "Cinzel", serif; 
+    font-weight: 500;
 }
 
 #product-item div#description {
     overflow-wrap: anywhere;
     min-height: 80px;
     max-height: 100px;
-    font-family: "Ubuntu";
+    font-family: "Rubik", serif; 
+    font-weight: 400;
+    font-size: 0.8em; 
 }
 
-#product-item span#price {
-    font-family: "Raleway-Thin"; 
+#product-item span {
+    font-family: "Cinzel", serif; 
+    font-weight: 500;
+}
+
+#product-item #price {
+    font-size: 1.5em; 
+    margin-right: 0.25em;
+    font-family: "Cinzel", serif; 
+    font-weight: 600;
+}
+
+.price-container {
+    text-align: right;
+}
+
+.raiting-container {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.category-container {
+    text-align: left;  
+    font-size: 1em; 
+}
+
+.subcategory-container {
+    text-align: left;
+}
+
+.subcategory {
+    padding: 10px;
+    margin-left: 2vh;
+    font-size: 14px; 
+}
+
+.category {
+    padding: 10px;
+    margin-left: 1vh;
+    font-size: 14px; 
 }
 
 @media screen and (min-width: 721px) and (max-width: 1200px) {

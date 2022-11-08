@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import ReplayCircleFilledIcon from "@mui/icons-material/ReplayCircleFilled";
+import CircularProgress from "@mui/material/CircularProgress";
 import ProductItem from "../item/ProductItem";
 import ProductService from "../../../service/api/ProductService";
 import { OK } from "../../../constants";
@@ -15,6 +16,7 @@ const ProductTable = () => {
   const [isLast, setLast] = useState(false);
   const [page, setPage] = useState(1);
   const [loadMoreDisabled, setLoadModeDisabled] = useState(false);
+  const [height, setHeight] = useState("90vh");
 
   useEffect(() => {
     const getProducts = async () => {
@@ -32,13 +34,15 @@ const ProductTable = () => {
   const loadMore = async () => {
     setLoadModeDisabled(true);
     setPage(page + 1);
+    setHeight(height + height);
     const response = await ProductService.getProducts(page);
-    console.log(response);
     if (response.status === OK && response.data.content) {
-      setProducts(...products, response.data.content);
+      setProducts(products.concat(response.data.content));
       setLast(response.data.last);
+      setLoadModeDisabled(false);
     }
   };
+
   return (
     <>
       <Loading open={isLoading} text={getKeyValue("product.loader")} />
@@ -55,16 +59,17 @@ const ProductTable = () => {
           ))}
           {!isLast && (
             <Grid item data-testid="show-more" id="show-more">
-              <IconButton
-                style={{ fontSize: "20vh" }}
+              {!loadMoreDisabled && (<IconButton
+                style={{ fontSize: "10vh" }}
                 onClick={loadMore}
                 disabled={loadMoreDisabled}
               >
                 <ReplayCircleFilledIcon
-                  style={{ fontSize: "20vh" }}
+                  style={{ fontSize: "10vh" }}
                   className="main"
                 />
-              </IconButton>
+              </IconButton>)}
+              {loadMoreDisabled && (<CircularProgress style={{ fontSize: "20vh" }}/>)}
             </Grid>
           )}
         </Grid>
