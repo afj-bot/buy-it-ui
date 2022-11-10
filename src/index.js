@@ -9,6 +9,7 @@ import AuthenticatedRoute from "./components/auth/AuthenticatedRoute";
 import AuthenticateClosedRoute from "./components/auth/AuthenticateClosedRoute";
 import { AUTH_ROUTES, PUBLIC_ROUTES } from "./constants";
 import LocalizeProvider from "./service/providers/LocalizeProvider";
+import AlertProvider from "./service/providers/AlertProvider";
 
 const App = React.lazy(() => import("./App"));
 const Login = React.lazy(() => import("./pages/login/Login"));
@@ -62,7 +63,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <LocalizeProvider>
+      <AlertProvider>
       <Index />
+      </AlertProvider>
     </LocalizeProvider>
   </React.StrictMode>
 );

@@ -16,21 +16,10 @@ const contextValue = {
   getKeyValue: mock,
 };
 
-let container = null;
-beforeEach(() => {
-  container = document.createElement("div");
-  document.body.appendChild(container);
-});
-
-afterEach(() => {
-  container.remove();
-  container = null;
-});
-
 test("Handle login click event", async () => {
   const axiosPost = jest.spyOn(axios, "post");
   axiosPost.mockImplementation(() => {
-    return Promise.resolve({ data: "\"token\": \"asdasda", status: 200 });
+    return Promise.resolve({ data: JSON.parse("{\"token\": \"asdasda\"}"), status: 200 });
   });
   render(
     <LocalizeContext.Provider value={contextValue} >
@@ -47,10 +36,6 @@ test("Handle login click event", async () => {
 });
 
 test("Check the button disabled if password empty", async () => {
-  const axiosPost = jest.spyOn(axios, "post");
-  axiosPost.mockImplementation(() => {
-    return Promise.resolve({ data: "", status: 401 });
-  });
   render(
     <LocalizeContext.Provider value={contextValue} >
         <LoginForm />
@@ -61,10 +46,6 @@ test("Check the button disabled if password empty", async () => {
 });
 
 test("Check the button disabled if username empty", async () => {
-  const axiosPost = jest.spyOn(axios, "post");
-  axiosPost.mockImplementation(() => {
-    return Promise.resolve({ data: "", status: 401 });
-  });
   render(
     <LocalizeContext.Provider value={contextValue} >
         <LoginForm />
@@ -75,10 +56,6 @@ test("Check the button disabled if username empty", async () => {
 });
 
 test.skip("Check the forgot password button", async () => {
-  const axiosPost = jest.spyOn(axios, "post");
-  axiosPost.mockImplementation(() => {
-    return Promise.resolve({ data: "", status: 401 });
-  });
   render(
     <LocalizeContext.Provider value={contextValue} >
         <LoginForm />
@@ -91,7 +68,10 @@ test.skip("Check the forgot password button", async () => {
 test("Handle error", async () => {
   const axiosPost = jest.spyOn(axios, "post");
   axiosPost.mockImplementation(() => {
-    return Promise.resolve({ data: "", status: 401 });
+    return Promise.resolve({
+      data: JSON.parse("{\"response\":\"Failed\",\"error\":[{\"message\":\"error.username-password.invalid\"}]}"),
+      status: 401,
+    });
   });
   render(
     <LocalizeContext.Provider value={contextValue} >
@@ -101,8 +81,7 @@ test("Handle error", async () => {
   fireEvent.change(screen.getByPlaceholderText("Username"), { target: { value: "42" } });
   fireEvent.change(screen.getByPlaceholderText("Password"), { target: { value: "42" } });
   fireEvent.click(screen.getByTestId("login"));
-
-  await waitFor(async () => {
+  await waitFor(() => {
     expect(screen.getByTestId("username").firstChild).toHaveClass("Mui-error");
-  });
+  }, { timeout: 5000 });
 });

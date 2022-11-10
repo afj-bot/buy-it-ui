@@ -25,15 +25,15 @@
 }
 
 .registration {
-    height: 46%;
+    height: 81%;
 }
 
 .registration-medium {
-    height: 53%;
+    height: 86%;
 }
 
 .registration-large {
-    height: 57%;
+    height: 92%;
 }
 
 @media screen and (min-width: 240px) and (max-width: 767px) {

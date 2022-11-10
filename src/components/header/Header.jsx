@@ -11,7 +11,7 @@ import LoginIcon from "@mui/icons-material/Login";
 import Localization from "../dropdown/localization/Localization";
 import LocalizeService from "../../service/api/LocalizeService";
 import { LocalizeContext } from "../../service/providers/LocalizeProvider";
-import useLocalStorage from "../../service/useLocalStorage";
+import useLocalStorage from "../../service/utils/useLocalStorage";
 import { LANGUAGE_ATTRIBUTE, PUBLIC_ROUTES } from "../../constants";
 import apiInstance from "../../service/api/axios";
 import Logo from "../logo/Logo";
@@ -25,10 +25,10 @@ const Header = ({ isDisplayLogin }) => {
   const [language, setLanguage] = useLocalStorage(LANGUAGE_ATTRIBUTE, "gb");
 
   useEffect(() => {
-    async function getContent () {
+    const getContent = async () => {
       const response = await LocalizeService.localize(language);
       updateResource(response.data);
-    }
+    };
 
     getContent();
   }, [language]);
