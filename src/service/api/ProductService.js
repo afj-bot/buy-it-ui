@@ -19,11 +19,16 @@ class ProductService {
     });
   }
 
+  async getProduct (id) {
+    return await apiInstance.get(`${prefix}/${id}`);
+  }
+
   async addRating (id, star) {
     return await apiInstance.patch(`${prefix}/${id}/rating`, {
       star: star
     });
   }
+
 }
 
 export default new ProductService();
