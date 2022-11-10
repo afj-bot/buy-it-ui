@@ -18,6 +18,12 @@ class ProductService {
       responseType: "blob",
     });
   }
+
+  async addRating (id, star) {
+    return await apiInstance.patch(`${prefix}/${id}/rating`, {
+      star: star
+    });
+  }
 }
 
 export default new ProductService();
