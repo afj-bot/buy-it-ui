@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Grid from "@mui/material/Grid";
@@ -12,33 +12,42 @@ import { ANONYMOUS_ATTRIBUTE, OK, PUBLIC_ROUTES } from "../../../constants";
 import ProductImage from "../image/ProductImage";
 
 import "./ProductItem.css";
-import { useContext } from "react";
 
 const Header = ({ id, name }) => (
   <Grid item>
-    <Link to={`${PUBLIC_ROUTES.PRODUCT}/${id}`} style={{ textDecoration: "none", color: "black" }}>
+    <Link
+      to={`${PUBLIC_ROUTES.PRODUCT}/${id}`}
+      style={{ textDecoration: "none", color: "black" }}
+    >
       <h3>{name}</h3>
     </Link>
   </Grid>
-)
+);
 
 const Image = ({ id, image }) => (
   <Grid item>
     {!image && <CircularProgress />}
-    {image &&
-      <Link to={`${PUBLIC_ROUTES.PRODUCT}/${id}`} style={{ textDecoration: "none", color: "black" }}>
+    {image && (
+      <Link
+        to={`${PUBLIC_ROUTES.PRODUCT}/${id}`}
+        style={{ textDecoration: "none", color: "black" }}
+      >
         <ProductImage src={image} />
-      </Link>}
+      </Link>
+    )}
   </Grid>
-)
+);
 
 const Price = ({ id, price }) => (
   <Grid item className="price-container">
-    <Link to={`${PUBLIC_ROUTES.PRODUCT}/${id}`} style={{ textDecoration: "none", color: "black" }}>
+    <Link
+      to={`${PUBLIC_ROUTES.PRODUCT}/${id}`}
+      style={{ textDecoration: "none", color: "black" }}
+    >
       <span id="price">{price}</span>
     </Link>
   </Grid>
-)
+);
 
 const CustomRating = ({ star, id }) => {
   const [anonymous] = useLocalStorage(ANONYMOUS_ATTRIBUTE, "");
@@ -57,8 +66,7 @@ const CustomRating = ({ star, id }) => {
     } else {
       showAlert(getKeyValue("product.rating.error"));
     }
-
-  }
+  };
 
   return (
     <Grid item className="raiting-container">
@@ -70,8 +78,8 @@ const CustomRating = ({ star, id }) => {
         onChange={(event, newValue) => addRating(event, newValue)}
       />
     </Grid>
-  )
-}
+  );
+};
 
 const CategorySubcategoryFooter = ({ type, name }) => {
   const { getKeyValue } = useContext(LocalizeContext);
@@ -83,13 +91,13 @@ const CategorySubcategoryFooter = ({ type, name }) => {
       <span className={type.toLowerCase() === "subcategory" ? "padding" : ""}>
         {name}
       </span>
-    </Grid>)
-}
+    </Grid>
+  );
+};
 
 const ProductItem = (props) => {
   const { id, name, price, description, category, star } = props.product;
   const [image, setImage] = useState(undefined);
-
 
   useEffect(() => {
     const getImage = async () => {
@@ -111,7 +119,6 @@ const ProductItem = (props) => {
       data-testid={id}
       id="product-item"
     >
-
       <Header id={id} name={name} />
       <Image id={id} image={image} />
       <Price id={id} price={price} />
@@ -120,7 +127,10 @@ const ProductItem = (props) => {
       </Grid>
       <CustomRating star={star} id={id} />
       <CategorySubcategoryFooter type="Category" name={category.name} />
-      <CategorySubcategoryFooter type="Subcategory" name={category.subCategory.name} />
+      <CategorySubcategoryFooter
+        type="Subcategory"
+        name={category.subCategory.name}
+      />
     </Grid>
   );
 };
@@ -130,6 +140,31 @@ ProductItem.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
+};
+
+Header.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+};
+
+Image.propTypes = {
+  id: PropTypes.string.isRequired,
+  image: PropTypes.object.isRequired,
+};
+
+Price.propTypes = {
+  id: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
+};
+
+CustomRating.propTypes = {
+  id: PropTypes.string.isRequired,
+  star: PropTypes.number.isRequired,
+};
+
+CategorySubcategoryFooter.propTypes = {
+  type: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default ProductItem;

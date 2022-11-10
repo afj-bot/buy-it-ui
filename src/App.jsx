@@ -13,7 +13,6 @@ import AuthService from "./service/api/AuthService";
 import { AlertContext } from "./service/providers/AlertProvider";
 import "./App.css";
 
-
 const App = ({ children }) => {
   const { showAlert } = useContext(AlertContext);
   const [isDisplayLogin, setDisplayLogin] = useState(true);

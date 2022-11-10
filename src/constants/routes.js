@@ -12,7 +12,7 @@ export const PUBLIC_ROUTES = {
   REGISTRATION: "/registration",
   MY_CART: "/my/cart",
   SEARCH: "/search",
-  PRODUCT: "/product"
+  PRODUCT: "/product",
 };
 
 /**

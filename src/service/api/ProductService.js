@@ -25,10 +25,9 @@ class ProductService {
 
   async addRating (id, star) {
     return await apiInstance.patch(`${prefix}/${id}/rating`, {
-      star: star
+      star,
     });
   }
-
 }
 
 export default new ProductService();
