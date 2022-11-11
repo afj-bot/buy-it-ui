@@ -59,17 +59,21 @@ const ProductTable = () => {
           ))}
           {!isLast && (
             <Grid item data-testid="show-more" id="show-more">
-              {!loadMoreDisabled && (<IconButton
-                style={{ fontSize: "10vh" }}
-                onClick={loadMore}
-                disabled={loadMoreDisabled}
-              >
-                <ReplayCircleFilledIcon
+              {!loadMoreDisabled && (
+                <IconButton
                   style={{ fontSize: "10vh" }}
-                  className="main"
-                />
-              </IconButton>)}
-              {loadMoreDisabled && (<CircularProgress style={{ fontSize: "20vh" }}/>)}
+                  onClick={loadMore}
+                  disabled={loadMoreDisabled}
+                >
+                  <ReplayCircleFilledIcon
+                    style={{ fontSize: "10vh" }}
+                    className="main"
+                  />
+                </IconButton>
+              )}
+              {loadMoreDisabled && (
+                <CircularProgress style={{ fontSize: "20vh" }} />
+              )}
             </Grid>
           )}
         </Grid>

@@ -14,7 +14,7 @@ import ProductImage from "../image/ProductImage";
 import "./ProductItem.css";
 
 const Header = ({ id, name }) => (
-  <Grid item>
+  <Grid item data-testid="header">
     <Link
       to={`${PUBLIC_ROUTES.PRODUCT}/${id}`}
       style={{ textDecoration: "none", color: "black" }}
@@ -25,7 +25,7 @@ const Header = ({ id, name }) => (
 );
 
 const Image = ({ id, image }) => (
-  <Grid item>
+  <Grid item data-testid="image">
     {!image && <CircularProgress />}
     {image && (
       <Link
@@ -39,7 +39,7 @@ const Image = ({ id, image }) => (
 );
 
 const Price = ({ id, price }) => (
-  <Grid item className="price-container">
+  <Grid item className="price-container" data-testid="price">
     <Link
       to={`${PUBLIC_ROUTES.PRODUCT}/${id}`}
       style={{ textDecoration: "none", color: "black" }}
@@ -69,7 +69,7 @@ const CustomRating = ({ star, id }) => {
   };
 
   return (
-    <Grid item className="raiting-container">
+    <Grid item className="raiting-container" data-testid="rating">
       <Rating
         name="product-rating"
         value={stars}
@@ -84,7 +84,11 @@ const CustomRating = ({ star, id }) => {
 const CategorySubcategoryFooter = ({ type, name }) => {
   const { getKeyValue } = useContext(LocalizeContext);
   return (
-    <Grid item className={`${type.toLowerCase()}-container`}>
+    <Grid
+      item
+      className={`${type.toLowerCase()}-container`}
+      data-testid={type.toLowerCase()}
+    >
       <span className={type.toLowerCase()}>
         {getKeyValue(`product.item.${type.toLowerCase()}`)}
       </span>
@@ -115,14 +119,14 @@ const ProductItem = (props) => {
       container
       direction="row"
       alignContent="center"
-      alignItem="center"
+      alignItems="center"
       data-testid={id}
       id="product-item"
     >
       <Header id={id} name={name} />
       <Image id={id} image={image} />
       <Price id={id} price={price} />
-      <Grid item>
+      <Grid item data-testid="description">
         <div id="description">{description}</div>
       </Grid>
       <CustomRating star={star} id={id} />
