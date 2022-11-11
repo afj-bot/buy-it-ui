@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext, useMemo } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import PropTypes from "prop-types";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
@@ -10,9 +10,9 @@ import ListItemText from "@mui/material/ListItemText";
 import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
 import CircularProgress from "@mui/material/CircularProgress";
-import CategoryService from "../../service/api/CategoryService";
-import { LocalizeContext } from "../../service/providers/LocalizeProvider";
-import { OK } from "../../constants";
+import CategoryService from "../../../service/api/CategoryService";
+import { LocalizeContext } from "../../../service/providers/LocalizeProvider";
+import { OK } from "../../../constants";
 
 import "./Filter.css";
 
@@ -90,11 +90,11 @@ const Filter = ({
   setRating,
 }) => {
   const [content, setContent] = useState([]);
-  const [categories, setCategories] = useState([category]);
+  const [categories, setCategories] = useState([]);
   const [categoryItem, setCategoryItem] = React.useState([]);
   const [ratingItem, setRatingItem] = React.useState([]);
   const [ratings] = useState(["1", "2", "3", "4", "5"]);
-  const [subCategories, setSubcategories] = useState([subCategory]);
+  const [subCategories, setSubcategories] = useState([]);
   const [subcategoryItem, setSubcategoryItem] = React.useState([]);
   const { getKeyValue } = useContext(LocalizeContext);
 
@@ -127,7 +127,7 @@ const Filter = ({
   };
 
   const applyFilters = () => {
-    setCategories(categoryItem.join());
+    setCategory(categoryItem.join());
     setSubCategory(subcategoryItem.join());
     setRating(ratingItem.join());
     setProductName("");
@@ -158,7 +158,7 @@ const Filter = ({
       />
       <FilterItem
         name={getKeyValue("product.item.rating")}
-        value={ratings}
+        values={ratings}
         disabled
         item={ratingItem}
         setItem={setRatingItem}
@@ -190,4 +190,4 @@ Filter.propTypes = {
   setRating: PropTypes.func.isRequired,
 };
 
-export default useMemo(Filter);
+export default Filter;

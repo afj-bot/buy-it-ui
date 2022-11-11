@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useMemo } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
@@ -90,4 +90,4 @@ ProductTable.propTypes = {
   rating: PropTypes.number,
 };
 
-export default useMemo(ProductTable);
+export default ProductTable;
