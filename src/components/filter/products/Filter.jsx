@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useMemo } from "react";
 import PropTypes from "prop-types";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
@@ -79,11 +79,22 @@ const FilterItem = ({ name, disabled, values, loadMore, item, setItem }) => {
   );
 };
 
-const Filter = () => {
+const Filter = ({
+  category,
+  setCategory,
+  subCategory,
+  setSubCategory,
+  productName,
+  setProductName,
+  rating,
+  setRating,
+}) => {
   const [content, setContent] = useState([]);
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState([category]);
   const [categoryItem, setCategoryItem] = React.useState([]);
-  const [subCategories, setSubcategories] = useState([]);
+  const [ratingItem, setRatingItem] = React.useState([]);
+  const [ratings] = useState(["1", "2", "3", "4", "5"]);
+  const [subCategories, setSubcategories] = useState([subCategory]);
   const [subcategoryItem, setSubcategoryItem] = React.useState([]);
   const { getKeyValue } = useContext(LocalizeContext);
 
@@ -115,6 +126,13 @@ const Filter = () => {
     setSubcategories(subCategoriesNames);
   };
 
+  const applyFilters = () => {
+    setCategories(categoryItem.join());
+    setSubCategory(subcategoryItem.join());
+    setRating(ratingItem.join());
+    setProductName("");
+  };
+
   return (
     <Grid
       container
@@ -138,7 +156,14 @@ const Filter = () => {
         item={subcategoryItem}
         setItem={setSubcategoryItem}
       />
-      <Button className="button">
+      <FilterItem
+        name={getKeyValue("product.item.rating")}
+        value={ratings}
+        disabled
+        item={ratingItem}
+        setItem={setRatingItem}
+      />
+      <Button className="button" onClick={applyFilters}>
         {getKeyValue("product.filter.apply.button")}
       </Button>
     </Grid>
@@ -154,4 +179,15 @@ FilterItem.propTypes = {
   setItem: PropTypes.func.isRequired,
 };
 
-export default Filter;
+Filter.propTypes = {
+  category: PropTypes.string.isRequired,
+  setCategory: PropTypes.func.isRequired,
+  subCategory: PropTypes.string.isRequired,
+  setSubCategory: PropTypes.func.isRequired,
+  productName: PropTypes.string.isRequired,
+  setProductName: PropTypes.func.isRequired,
+  rating: PropTypes.string.isRequired,
+  setRating: PropTypes.func.isRequired,
+};
+
+export default useMemo(Filter);

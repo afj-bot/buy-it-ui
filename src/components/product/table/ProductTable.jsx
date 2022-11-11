@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useMemo } from "react";
+import PropTypes from "prop-types";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import ReplayCircleFilledIcon from "@mui/icons-material/ReplayCircleFilled";
@@ -9,7 +10,7 @@ import { OK } from "../../../constants";
 import Loading from "../../loader/Loading";
 import { LocalizeContext } from "../../../service/providers/LocalizeProvider";
 
-const ProductTable = () => {
+const ProductTable = ({ category, subCategory, productName, rating }) => {
   const { getKeyValue } = useContext(LocalizeContext);
   const [products, setProducts] = useState([]);
   const [isLoading, setLoading] = useState(true);
@@ -82,4 +83,11 @@ const ProductTable = () => {
   );
 };
 
-export default ProductTable;
+ProductTable.propTypes = {
+  category: PropTypes.string,
+  subCategory: PropTypes.string,
+  productName: PropTypes.string,
+  rating: PropTypes.number,
+};
+
+export default useMemo(ProductTable);
