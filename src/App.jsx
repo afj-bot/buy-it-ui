@@ -10,8 +10,8 @@ import Loading from "./components/loader/Loading";
 import CustomAlert from "./components/alert/Alert";
 import apiInstance from "./service/api/axios";
 import AuthService from "./service/api/AuthService";
-import "./App.css";
 import { AlertContext } from "./service/providers/AlertProvider";
+import "./App.css";
 
 const App = ({ children }) => {
   const { showAlert } = useContext(AlertContext);

@@ -1,0 +1,52 @@
+{
+  "content": [
+    {
+      "id": "552b372c-d5ed-4ce3-95ab-4578dd915daf",
+      "name": "bmw",
+      "description": "grey bmw",
+      "price": "13500.0 USD",
+      "quantity": 1,
+      "star": 2.3,
+      "createdBy": {
+        "id": "6c74a0ff-112f-473c-b4ee-091aeaae151f",
+        "firstName": "lesson2+test4783834513@mailinator.com"
+      },
+      "category": {
+        "id": "fd9dc963-4963-11ed-8727-02213429974e",
+        "url": "cars",
+        "name": "Cars",
+        "description": "Cars category",
+        "subCategory": {
+          "id": "fd9e57bd-4963-11ed-8727-02213429974e",
+          "name": "Other",
+          "description": "Other in the category"
+        }
+      }
+    }
+  ],
+  "pageable": {
+    "sort": {
+      "unsorted": true,
+      "sorted": false,
+      "empty": true
+    },
+    "offset": 0,
+    "pageNumber": 0,
+    "pageSize": 20,
+    "paged": true,
+    "unpaged": false
+  },
+  "totalPages": 1,
+  "totalElements": 1,
+  "last": true,
+  "size": 20,
+  "number": 0,
+  "sort": {
+    "unsorted": true,
+    "sorted": false,
+    "empty": true
+  },
+  "numberOfElements": 1,
+  "first": true,
+  "empty": false
+}

@@ -17,7 +17,7 @@ const Loading = ({ open, text = "loader.default" }) => {
   }, [open]);
 
   return (
-    <Dialog open={isOpen}>
+    <Dialog open={isOpen} data-testid="loader">
       <DialogTitle
         className="loader-title"
         id="loader-title"

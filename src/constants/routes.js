@@ -10,6 +10,9 @@ export const PUBLIC_ROUTES = {
   CONTACT_US: "/contact-us",
   FORGOT_PASSWORD: "/forgot-password",
   REGISTRATION: "/registration",
+  MY_CART: "/my/cart",
+  SEARCH: "/search",
+  PRODUCT: "/product",
 };
 
 /**

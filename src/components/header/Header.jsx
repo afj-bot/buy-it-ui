@@ -65,12 +65,12 @@ const Header = ({ isDisplayLogin }) => {
   const cartItems = [
     {
       value: "header.cart.button",
-      link: "/my/cart",
+      link: PUBLIC_ROUTES.MY_CART,
       icon: ShoppingCartIcon,
     },
     {
       value: "header.search.button",
-      link: "/search",
+      link: PUBLIC_ROUTES.SEARCH,
       icon: SearchIcon,
     },
   ];

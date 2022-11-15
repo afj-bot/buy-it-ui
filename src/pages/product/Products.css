@@ -1,0 +1,25 @@
+.products-table-root {
+    width: 80%;
+    min-height: 85vh;
+}
+
+.products-table {
+    min-height: 90vh;
+    border-radius: 5px;
+}
+
+#show-more {
+    height: 40vh;
+    margin-left: 5vh;
+    padding-top: 5vh;
+}
+
+@media screen and (max-width: 390px) and (max-width: 1200px) {
+    .products-table-root {
+        min-height: 200vh;
+    }
+    
+    .products-table {
+        min-height: 210vh;
+    }
+}

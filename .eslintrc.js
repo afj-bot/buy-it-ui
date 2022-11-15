@@ -33,7 +33,7 @@ module.exports = {
     "react",
   ],
   rules: {
-    "no-magic-numbers": ["error", { ignore: [0, 1, 2, 3, 4, 5] }],
+    "no-magic-numbers": ["error", { ignore: [-1, 0, 1, 2, 3, 4, 5] }],
     quotes: ["error", "double"],
     semi: ["error", "always"],
     "space-before-function-paren": ["error", "always"],

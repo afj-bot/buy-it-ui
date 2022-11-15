@@ -1,0 +1,12 @@
+img#product-image {
+    border-radius: 8px;
+    width: 200px; 
+    height: 200px; 
+}
+
+@media screen and (max-width: 390px) and (max-width: 1200px) {
+    img#product-image {
+        width: 125px; 
+        height: 125px; 
+    }
+}

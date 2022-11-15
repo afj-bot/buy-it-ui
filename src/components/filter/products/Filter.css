@@ -1,0 +1,37 @@
+.filter-root {
+    width: 30%;
+    min-height: 100vh;
+    margin-top: 10vh;
+}
+
+#filter-label {
+    font-family: "Rubik";
+    font-weight: 500;
+    font-size: 14px;
+}
+
+#filter-text>span {
+    font-family: "Rubik";
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.filter-text {
+    border-color: #0D7377;
+    font-family: "Rubik";
+    font-weight: 500;
+    font-size: 18px;
+}
+
+#filter label.Mui-focused {
+    color: #0D7377;
+}
+
+#filter div.Mui-focused fieldset {
+    border-color: #0D7377;
+    border-width: 3px;
+}
+
+#filter+button.button {
+    margin-left: 16vh;
+}
