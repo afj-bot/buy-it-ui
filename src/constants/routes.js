@@ -13,6 +13,7 @@ export const PUBLIC_ROUTES = {
   MY_CART: "/my/cart",
   SEARCH: "/search",
   PRODUCT: "/product",
+  PRODUCT_ID: "product/:id"
 };
 
 /**
