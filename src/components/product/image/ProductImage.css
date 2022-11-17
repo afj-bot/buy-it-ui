@@ -1,7 +1,13 @@
-img#product-image {
+img#product-image.medium {
     border-radius: 8px;
     width: 200px; 
     height: 200px; 
+}
+
+img#product-image.large {
+    border-radius: 8px;
+    width: 350px; 
+    height: 350px; 
 }
 
 @media screen and (max-width: 390px) and (max-width: 1200px) {

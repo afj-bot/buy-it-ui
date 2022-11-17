@@ -1,0 +1,23 @@
+h3 {
+    padding: 0.5em;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2em;
+}
+
+.description {
+    font-family: "Montserrat", serif; 
+    font-weight: 600;
+    font-size: 1em; 
+    overflow-wrap: anywhere;
+}
+
+#information > div.category {
+    font-family: "Montserrat", serif; 
+    font-weight: 500;
+    font-size: .9em;
+    padding: 0.5em;
+    text-align: end;
+}

@@ -1,0 +1,20 @@
+.add-to-cart-item button {
+    margin-left: auto;
+}
+
+.add-to-cart-item > .MuiFormControl-root {
+    width: 50%;
+    margin: auto;
+}
+
+.small-input {
+    width: 10%;
+    margin-right: 2%;
+}
+
+#price {
+    margin: 2%;
+    font-size: 2em; 
+    font-family: "Montserrat", serif; 
+    font-weight: 500;
+}

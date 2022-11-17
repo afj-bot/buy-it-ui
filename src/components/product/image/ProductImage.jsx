@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import "./ProductImage.css";
 
-const ProductImage = ({ src }) => {
+const ProductImage = ({ src, isLarge = false }) => {
   const [image, setImage] = useState("");
 
   useEffect(() => {
@@ -21,11 +21,13 @@ const ProductImage = ({ src }) => {
       alt=""
       src={image}
       loading="lazy"
+      className={isLarge ? "large" : "medium"}
     />
   );
 };
 
 ProductImage.propTypes = {
   src: PropTypes.object.isRequired,
+  isLarge: PropTypes.bool
 };
 export default ProductImage;

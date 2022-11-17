@@ -16,7 +16,7 @@
 }
 
 #product-item h3 {
-    font-family: "Cinzel", serif; 
+    font-family: "Montserrat", serif; 
     font-weight: 500;
 }
 
@@ -30,14 +30,14 @@
 }
 
 #product-item span {
-    font-family: "Cinzel", serif; 
+    font-family: "Montserrat", serif; 
     font-weight: 500;
 }
 
 #product-item #price {
     font-size: 1.5em; 
     margin-right: 0.25em;
-    font-family: "Cinzel", serif; 
+    font-family: "Montserrat", serif; 
     font-weight: 600;
 }
 

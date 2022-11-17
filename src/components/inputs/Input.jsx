@@ -17,6 +17,7 @@ const Input = ({
   changeFunction,
   className = "",
   helperText,
+  inputProps
 }) => {
   const [isSecured, setSecured] = useState(isPasswordField);
   const [stateType, setStateType] = useState(type);
@@ -55,6 +56,7 @@ const Input = ({
       value={value}
       error={error}
       helperText={helperText && error ? helperText : ""}
+      inputProps={inputProps}
       InputProps={isPasswordField && securityInput()}
       onChange={(e) => changeFunction(e.target.value)}
     />
@@ -72,6 +74,7 @@ Input.propTypes = {
   helperText: PropTypes.string,
   changeFunction: PropTypes.func.isRequired,
   className: PropTypes.string,
+  inputProps: PropTypes.object
 };
 
 export default Input;
